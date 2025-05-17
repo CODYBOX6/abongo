@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre Approche | AbongoFrance-Camer</title>
+    <meta name="description" content="Découvrez l'approche unique d'AbongoFrance-Camer pour améliorer l'éducation et la santé au Cameroun.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700&display=optional" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#007A5E',
+                        secondary: '#CE1126',
+                        accent: '#FCD116',
+                        brown: '#5C4033',
+                        sand: '#F4E5D1',
+                        dark: '#1A202C',
+                        light: '#FFFFFF'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        :root {
+            --color-primary: #007A5E;
+            --color-secondary: #CE1126;
+            --color-accent: #FCD116;
+            --color-brown: #5C4033;
+            --color-sand: #F4E5D1;
+        }
+        
+        body {
+            background-color: var(--color-sand);
+            overflow-x: hidden;
+        }
+        
+        .horizontal-scroll {
+            overflow: hidden;
+            height: 100vh;
+        }
+        
+        .pin-wrap {
+            display: flex;
+            width: max-content;
+            height: 100%;
+        }
+        
+        .panel {
+            width: 100vw;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body class="font-sans text-dark antialiased">
+    <!-- Header avec navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-md" role="banner">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="/" class="flex items-center flex-col" aria-label="Accueil AbongoFrance-Camer">
+                <div class="flex items-center">
+                    <svg class="h-10 w-10 text-primary" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true" focusable="false">
+                        <path d="M50 0C22.4 0 0 22.4 0 50s22.4 50 50 50 50-22.4 50-50S77.6 0 50 0zm0 90C27.9 90 10 72.1 10 50S27.9 10 50 10s40 17.9 40 40-17.9 40-40 40z"/>
+                        <path d="M30 30h40v40H30z"/>
+                    </svg>
+                    <span class="ml-3 text-xl font-display font-bold">ABONGOFRANCE-CAMER</span>
+                </div>
+            </a>
+            
+            <a href="/" class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg font-medium transition shadow-md focus-visible:outline-primary focus-visible:outline-2">
+                Retour à l'accueil
+            </a>
+        </div>
+    </header>
+
+    <!-- Introduction -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 text-center">Notre Approche</h1>
+            <p class="text-xl text-center max-w-3xl mx-auto mb-12">
+                Chez AbongoFrance-Camer, nous croyons en une approche participative et durable. Découvrez les étapes clés de notre méthodologie qui a fait ses preuves depuis plus de 10 ans.
+            </p>
+            <p class="text-center text-lg text-gray-600">Faites défiler horizontalement pour découvrir notre méthode →</p>
+        </div>
+    </section>
+
+    <!-- Horizontal scrolling section -->
+    <section class="horizontal-scroll">
+        <div class="pin-wrap">
+            <!-- Étape 1 -->
+            <div class="panel bg-primary text-white">
+                <div class="container mx-auto px-4 py-32">
+                    <h2 class="text-4xl font-display font-bold mb-6">1. Diagnostic communautaire</h2>
+                    <p class="text-xl max-w-2xl">Nous rencontrons les chefs de village pour identifier les besoins prioritaires.</p>
+                    <img src="/assets/img/team.avif" alt="Réunion avec un village" class="mt-12 rounded-lg shadow-xl max-w-2xl">
+                </div>
+            </div>
+            
+            <!-- Étape 2 -->
+            <div class="panel bg-secondary text-white">
+                <div class="container mx-auto px-4 py-32">
+                    <h2 class="text-4xl font-display font-bold mb-6">2. Implication locale</h2>
+                    <p class="text-xl max-w-2xl">Les villageois participent à la construction des écoles.</p>
+                    <img src="/assets/img/ezechiel.avif" alt="Villageois construisant une école" class="mt-12 rounded-lg shadow-xl max-w-2xl">
+                </div>
+            </div>
+            
+            <!-- Étape 3 -->
+            <div class="panel bg-accent text-dark">
+                <div class="container mx-auto px-4 py-32">
+                    <h2 class="text-4xl font-display font-bold mb-6">3. Formation</h2>
+                    <p class="text-xl max-w-2xl">Nous formons des enseignants et des personnels de santé locaux.</p>
+                    <img src="/assets/img/emilienne.avif" alt="Formation des enseignants" class="mt-12 rounded-lg shadow-xl max-w-2xl">
+                </div>
+            </div>
+            
+            <!-- Étape 4 -->
+            <div class="panel bg-brown text-white">
+                <div class="container mx-auto px-4 py-32">
+                    <h2 class="text-4xl font-display font-bold mb-6">4. Suivi à long terme</h2>
+                    <p class="text-xl max-w-2xl">Nos équipes locales assurent un suivi régulier des projets.</p>
+                    <img src="/assets/img/Bourgeois.avif" alt="Suivi des projets" class="mt-12 rounded-lg shadow-xl max-w-2xl">
+                </div>
+            </div>
+            
+            <!-- Conclusion -->
+            <div class="panel bg-white">
+                <div class="container mx-auto px-4 py-32 text-center">
+                    <h2 class="text-4xl font-display font-bold mb-6">Un impact durable</h2>
+                    <p class="text-xl max-w-2xl mx-auto mb-12">Cette approche nous permet d'avoir un impact durable et de renforcer l'autonomie des communautés locales.</p>
+                    <a href="/#don" class="inline-block bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg font-bold text-lg transition">
+                        Soutenir nos projets
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer simplifié -->
+    <footer class="bg-dark text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2024 AbongoFrance-Camer - Association humanitaire pour l'éducation et la santé au Cameroun</p>
+            <p class="mt-2">
+                <a href="/" class="underline hover:text-accent transition">Retour à l'accueil</a>
+            </p>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { ScrollTrigger } from 'https://cdn.skypack.dev/gsap@3.11.4/ScrollTrigger';
+        import { gsap } from 'https://cdn.skypack.dev/gsap@3.11.4';
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        let panels = gsap.utils.toArray(".panel");
+        let totalWidth = 0;
+
+        // Calculate total width
+        panels.forEach(panel => {
+            totalWidth += panel.offsetWidth;
+        });
+
+        // Horizontal scroll animation
+        gsap.to(".pin-wrap", {
+            x: () => -(totalWidth - window.innerWidth),
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".horizontal-scroll",
+                pin: true,
+                scrub: 1,
+                end: () => `+=${totalWidth}`,
+                anticipatePin: 1
+            }
+        });
+    </script>
+</body>
+</html> 

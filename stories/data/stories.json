@@ -1,0 +1,62 @@
+{
+  "stories": [
+    {
+      "id": "fatou",
+      "name": "Fatou",
+      "age": 8,
+      "title": "De la marche forcée à l'école du village",
+      "heroImage": "/assets/img/emilienne.avif",
+      "steps": [
+        {
+          "title": "La difficulté",
+          "description": "Avant 2022, Fatou marchait 2h chaque matin pour aller à l'école la plus proche.",
+          "details": "Cette longue marche épuisante la rendait souvent trop fatiguée pour se concentrer en classe, et la saison des pluies rendait le chemin dangereux.",
+          "image": "/assets/img/food.avif"
+        },
+        {
+          "title": "Le changement",
+          "description": "Notre école a ouvert en janvier 2022 à seulement 10 minutes de chez elle.",
+          "details": "Grâce aux dons de nos soutiens, nous avons construit une école de trois classes avec des enseignants formés et du matériel pédagogique adapté.",
+          "image": "/assets/img/team.avif"
+        },
+        {
+          "title": "Aujourd'hui",
+          "description": "Aujourd'hui, elle apprend et reçoit un repas nutritif chaque midi.",
+          "details": "Ses notes se sont améliorées, elle est pleine d'énergie et rêve de devenir médecin pour aider sa communauté.",
+          "image": "/assets/img/food2.avif"
+        }
+      ],
+      "quote": "Maintenant je peux apprendre tous les jours et je rentre chez moi avant qu'il fasse nuit. J'aime beaucoup ma nouvelle école et je veux continuer à étudier pour devenir médecin.",
+      "donationTarget": "Parrainer un enfant - 30€/mois"
+    },
+    {
+      "id": "jean",
+      "name": "Jean",
+      "age": 12,
+      "title": "Du handicap à l'autonomie grâce à la chirurgie",
+      "heroImage": "/assets/img/ezechiel.avif",
+      "steps": [
+        {
+          "title": "Le problème",
+          "description": "Jean souffrait d'une malformation de l'oreille depuis sa naissance, l'empêchant d'entendre correctement.",
+          "details": "Cette situation affectait gravement sa scolarité et son intégration sociale, le plaçant en situation d'isolement.",
+          "image": "/assets/img/food.avif"
+        },
+        {
+          "title": "L'intervention",
+          "description": "En 2023, grâce à notre programme de chirurgie ORL, Jean a pu bénéficier d'une opération pour corriger sa malformation.",
+          "details": "L'intervention, réalisée par des chirurgiens bénévoles, a permis de restaurer son audition.",
+          "image": "/assets/img/papiertoilette.avif"
+        },
+        {
+          "title": "Aujourd'hui",
+          "description": "Jean est aujourd'hui en mesure d'entendre et de communiquer normalement avec ses camarades et ses professeurs.",
+          "details": "Ses résultats scolaires se sont considérablement améliorés et il participe activement à la vie de son école.",
+          "image": "/assets/img/Bourgeois.avif"
+        }
+      ],
+      "quote": "Maintenant je peux entendre la voix de mon professeur et de ma mère. Je ne suis plus obligé de demander aux autres ce qui se passe. Je veux devenir médecin pour aider les autres enfants comme moi.",
+      "donationTarget": "Faire un don de 50€"
+    }
+  ]
+} 

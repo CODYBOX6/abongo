@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<!-- 
+    AbongoFrance-Camer - Association humanitaire pour l'éducation et la santé au Cameroun
+    
+    Couleurs officielles du drapeau camerounais :
+    - Vert : #007A5E (PANTONE 335 C)
+    - Rouge : #CE1126 (PANTONE 186 C)
+    - Jaune : #FCD116 (PANTONE 115 C)
+    
+    Jaune assombri pour texte (contraste WCAG AA) : #E5B700
+-->
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Association humanitaire pour l'éducation et la santé au Cameroun | AbongoFrance-Camer</title>
+    <meta name="description" content="Association 100 % bénévole : chaque euro va directement sur le terrain pour l'éducation et la santé au Cameroun.">
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700&display=optional" rel="stylesheet">
+    
+    <!-- Tailwind CSS v4 via CDN (production: build locally) -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#007A5E',  /* Vert du drapeau camerounais */
+                        secondary: '#CE1126',  /* Rouge du drapeau camerounais */
+                        accent: '#FCD116',  /* Jaune du drapeau camerounais */
+                        brown: '#5C4033',  /* Marron (cacao) */
+                        sand: '#F4E5D1',  /* Sable clair */
+                        dark: '#1A202C',
+                        light: '#FFFFFF'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        :root {
+            --color-primary: #007A5E;  /* Vert du drapeau camerounais */
+            --color-secondary: #CE1126;  /* Rouge du drapeau camerounais */
+            --color-accent: #FCD116;  /* Jaune du drapeau camerounais */
+            --color-brown: #5C4033;  /* Marron (cacao) */
+            --color-sand: #F4E5D1;  /* Sable clair */
+        }
+        
+        body {
+            background-color: var(--color-sand);
+        }
+        
+        /* Image overlay */
+        .image-overlay {
+            position: relative;
+        }
+        
+        .image-overlay::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-brown);
+            opacity: 0.1;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .image-overlay:hover::after {
+            opacity: 0;
+        }
+        
+        /* mode contraste élevé */
+        body.high-contrast {
+            --color-primary: #000000;
+            --color-secondary: #FFFFFF;
+            --color-accent: #FFFFFF;
+            --color-accent-text: #FFFFFF;
+            
+            background-color: #000;
+            color: #FFF;
+        }
+        
+        body.high-contrast .bg-primary {
+            background-color: var(--color-primary);
+        }
+        
+        body.high-contrast .bg-secondary {
+            background-color: var(--color-secondary);
+        }
+        
+        body.high-contrast .bg-accent {
+            background-color: var(--color-accent);
+        }
+        
+        body.high-contrast .text-primary {
+            color: var(--color-secondary);
+        }
+        
+        body.high-contrast .text-secondary {
+            color: var(--color-primary);
+        }
+        
+        body.high-contrast .text-accent {
+            color: var(--color-accent-text);
+        }
+        
+        body.high-contrast a:focus,
+        body.high-contrast button:focus {
+            outline: 3px solid #FFFFFF !important;
+            outline-offset: 2px;
+        }
+        
+        body.high-contrast .rounded-lg {
+            border-radius: 0.5rem;
+            border: 2px solid #FFFFFF;
+        }
+        
+        body.high-contrast img {
+            filter: grayscale(100%) contrast(120%);
+        }
+        
+        body.high-contrast .hover\:bg-primary:hover {
+            background-color: #333 !important;
+        }
+    </style>
+    
+    <!-- Favicon (optimized) -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <!-- Social meta (OG/Twitter) -->
+    <meta property="og:title" content="Association humanitaire pour l'éducation et la santé au Cameroun | AbongoFrance-Camer">
+    <meta property="og:description" content="Association 100 % bénévole : chaque euro va directement sur le terrain pour l'éducation et la santé au Cameroun.">
+    <meta property="og:image" content="https://www.abongofrance-camer.com/social-preview.jpg">
+    <meta property="og:image:alt" content="AbongoFrance-Camer - Association humanitaire au Cameroun">
+    <meta property="og:url" content="https://www.abongofrance-camer.com">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AbongoFrance-Camer | Action humanitaire au Cameroun">
+    <meta name="twitter:description" content="Aide humanitaire pour l'éducation et la santé au Cameroun">
+    
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "AbongoFrance-Camer",
+        "url": "https://www.abongofrance-camer.com",
+        "logo": "https://www.abongofrance-camer.com/logo.svg",
+        "description": "Association humanitaire pour l'éducation et la santé au Cameroun",
+        "foundingDate": "2010",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Rue de l'Humanitaire",
+            "addressLocality": "Paris",
+            "postalCode": "75001",
+            "addressCountry": "FR"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+33752810653",
+            "email": "abongofrance@yahoo.fr",
+            "contactType": "Customer Support"
+        },
+        "sameAs": [
+            "https://www.facebook.com/abongofrance.camer/"
+        ]
+    }
+    </script>
+    
+    <!-- Structured data for donation -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "DonateAction",
+        "agent": {
+            "@type": "Organization",
+            "name": "AbongoFrance-Camer"
+        },
+        "description": "Faire un don pour soutenir l'éducation et la santé au Cameroun",
+        "object": {
+            "@type": "MonetaryAmount",
+            "currency": "EUR",
+            "minValue": 5,
+            "maxValue": 5000
+        },
+        "recipient": {
+            "@type": "Organization",
+            "name": "AbongoFrance-Camer"
+        },
+        "target": "https://www.payasso.fr/abongo/don"
+    }
+    </script>
+    
+    <!-- Structured data for ORL project -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Project",
+        "name": "Chirurgie ORL enfants malentendants",
+        "description": "Soins médicaux et chirurgicaux pour les enfants malentendants, organisation d'interventions et suivi médical pour janvier-février 2025.",
+        "startDate": "2025-01-01",
+        "url": "https://www.abongofrance-camer.com/projets#orl",
+        "sponsor": {"@type": "Organization", "name": "AbongoFrance-Camer"}
+    }
+    </script>
+    
+    <!-- Structured data for CAESEDA project -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Project",
+        "name": "Soutien au CAESEDA",
+        "description": "Visite et soutien au CAESEDA, un centre spécialisé pour enfants malentendants, avec distribution de matériel didactique et fournitures scolaires.",
+        "startDate": "2024-01-01",
+        "url": "https://www.abongofrance-camer.com/projets#caeseda",
+        "sponsor": {"@type": "Organization", "name": "AbongoFrance-Camer"}
+    }
+    </script>
+    
+    <!-- Structured data for mobility aid project -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Project",
+        "name": "Aide à la mobilité",
+        "description": "Distribution de matériel paramédical pour aider à la mobilité et à l'autonomie : fauteuils roulants, cannes, béquilles et autres équipements.",
+        "startDate": "2024-01-01",
+        "url": "https://www.abongofrance-camer.com/projets#mobilite",
+        "sponsor": {"@type": "Organization", "name": "AbongoFrance-Camer"}
+    }
+    </script>
+</head>
+<body class="bg-sand font-sans text-dark antialiased">
+    <!-- Avis copyright images -->
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-md" role="banner">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="/" class="flex items-center flex-col" aria-label="Accueil AbongoFrance-Camer">
+                <!-- Logo SVG (optimized) -->
+                <div class="flex items-center">
+                    <svg class="h-10 w-10 text-primary" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true" focusable="false">
+                    <path d="M50 0C22.4 0 0 22.4 0 50s22.4 50 50 50 50-22.4 50-50S77.6 0 50 0zm0 90C27.9 90 10 72.1 10 50S27.9 10 50 10s40 17.9 40 40-17.9 40-40 40z"/>
+                    <path d="M30 30h40v40H30z"/>
+                </svg>
+                    <span class="ml-3 text-xl font-display font-bold">ABONGOFRANCE-CAMER</span>
+                </div>
+                <p class="text-sm italic mt-1">« Si l'Éternel ne bâtit la maison, ceux qui la bâtissent travaillent en vain. » – Ps 127 : 1</p>
+            </a>
+            
+            <nav class="hidden md:flex space-x-8" aria-label="Menu principal">
+                <a href="#mission" class="font-medium hover:text-primary transition focus-visible:outline-primary focus-visible:outline-2">Notre mission</a>
+                <a href="#actions" class="font-medium hover:text-primary transition focus-visible:outline-primary focus-visible:outline-2">Nos actions</a>
+                <a href="#impact-story" class="font-medium hover:text-primary transition focus-visible:outline-primary focus-visible:outline-2">Notre impact</a>
+                <a href="#equipe" class="font-medium hover:text-primary transition focus-visible:outline-primary focus-visible:outline-2">Notre équipe</a>
+                <a href="#besoins" class="font-medium hover:text-primary transition focus-visible:outline-primary focus-visible:outline-2">Nos besoins</a>
+                <a href="#don" class="font-medium hover:text-primary transition focus-visible:outline-primary focus-visible:outline-2">Faire un don</a>
+                <a href="#blog" class="font-medium hover:text-primary transition focus-visible:outline-primary focus-visible:outline-2">Actualités</a>
+                <a href="#docs" class="font-medium hover:text-primary transition focus-visible:outline-primary focus-visible:outline-2">Docs</a>
+                <a href="#echo" class="font-medium hover:text-primary transition focus-visible:outline-primary focus-visible:outline-2">Écho des Anges</a>
+                <a href="approche.html" class="font-medium hover:text-primary transition focus-visible:outline-primary focus-visible:outline-2">Notre approche</a>
+                <a href="projets.html" class="font-medium hover:text-primary transition focus-visible:outline-primary focus-visible:outline-2">Carte des projets</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <a href="#don" class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg font-medium transition shadow-md focus-visible:outline-primary focus-visible:outline-2">
+                    Donner
+                </a>
+                <button id="mobile-menu-button" class="md:hidden text-gray-600 focus-visible:outline-primary focus-visible:outline-2" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu mobile">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" focusable="false">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                    <span class="sr-only">Menu</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t" aria-hidden="true">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#mission" class="py-2 border-b focus-visible:outline-primary focus-visible:outline-2">Notre mission</a>
+                <a href="#actions" class="py-2 border-b focus-visible:outline-primary focus-visible:outline-2">Nos actions</a>
+                <a href="#impact-story" class="py-2 border-b focus-visible:outline-primary focus-visible:outline-2">Notre impact</a>
+                <a href="#equipe" class="py-2 border-b focus-visible:outline-primary focus-visible:outline-2">Notre équipe</a>
+                <a href="#besoins" class="py-2 border-b focus-visible:outline-primary focus-visible:outline-2">Nos besoins</a>
+                <a href="#don" class="py-2 border-b focus-visible:outline-primary focus-visible:outline-2">Faire un don</a>
+                <a href="#blog" class="py-2 border-b focus-visible:outline-primary focus-visible:outline-2">Actualités</a>
+                <a href="#docs" class="py-2 border-b focus-visible:outline-primary focus-visible:outline-2">Docs</a>
+                <a href="#echo" class="py-2 border-b focus-visible:outline-primary focus-visible:outline-2">Écho des Anges</a>
+                <a href="approche.html" class="py-2 border-b focus-visible:outline-primary focus-visible:outline-2">Notre approche</a>
+                <a href="projets.html" class="py-2 focus-visible:outline-primary focus-visible:outline-2">Carte des projets</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero section -->
+    <section class="relative bg-[#FCD116] text-dark">
+        <div class="container mx-auto px-4 py-20 md:py-32 flex flex-col items-center text-center relative z-10">
+            <div class="absolute inset-0 overflow-hidden">
+                <img src="assets/img/ebongoimage.avif" alt="Enfants camerounais soutenus par AbongoFrance-Camer" class="w-full h-full object-cover opacity-15" loading="eager">
+                <div class="absolute inset-0 bg-gradient-to-b from-accent/90 to-accent/70"></div>
+            </div>
+            
+            <div class="relative z-10">
+                <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 max-w-3xl text-brown">
+                    Agir pour l'éducation et la santé au Cameroun
+                </h1>
+                <p class="text-xl md:text-2xl mb-10 max-w-2xl text-dark">
+        <div class="container mx-auto px-4 py-20 md:py-32 flex flex-col items-center text-center">
+            <h1 class="text-4xl md:text-6xl font-display font-bold mb-6 max-w-3xl">
+                Agir pour l'éducation et la santé au Cameroun
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-2xl">
+                Fournir une aide humanitaire et un soutien aux personnes défavorisées, avec un accent sur les soins de santé et l'éducation.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#don" class="bg-secondary text-white hover:bg-secondary/90 px-8 py-4 rounded-lg font-bold text-lg transition shadow-lg focus-visible:outline-secondary focus-visible:outline-2">
+                    Je donne 30 € : un mois d'école et un repas/jour
+                </a>
+                <a href="#actions" class="bg-transparent border-2 border-primary hover:bg-primary/10 px-8 py-4 rounded-lg font-bold text-lg transition focus-visible:outline-primary focus-visible:outline-2">
+                    Voir nos projets sur le terrain
+                </a>
+            </div>
+        </div>
+        
+        <!-- Impact stats -->
+        <div class="container mx-auto px-4 -mb-12 relative z-10">
+            <div class="bg-white rounded-xl shadow-2xl p-6 grid grid-cols-1 md:grid-cols-3 gap-6 divide-y md:divide-y-0 md:divide-x divide-gray-200">
+                <div class="text-center px-4">
+                    <div class="text-4xl font-display font-bold text-primary mb-2" id="children-sponsored">1,250+</div>
+                    <div class="text-gray-700">Enfants parrainés</div>
+                </div>
+                <div class="text-center px-4">
+                    <div class="text-4xl font-display font-bold text-primary mb-2" id="villages-supported">45</div>
+                    <div class="text-gray-700">Villages soutenus</div>
+                </div>
+                <div class="text-center px-4">
+                    <div class="text-4xl font-display font-bold text-primary mb-2">100%</div>
+                    <div class="text-gray-700">100% des dons financent directement les projets</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Mission section -->
+    <section id="mission" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <div class="image-overlay">
+                        <img src="assets/img/food.avif" 
+                             alt="Distribution de nourriture aux enfants soutenus par Abongo au Cameroun" 
+                         class="rounded-xl shadow-lg w-full aspect-[4/3] object-cover" 
+                         width="800" 
+                         height="600" 
+                         loading="lazy" 
+                         decoding="async">
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-display font-bold mb-6">Notre mission</h2>
+                    <p class="text-lg mb-6">
+                        Fournir une aide humanitaire et un soutien aux personnes défavorisées, en mettant l'accent sur les soins de santé et l'éducation. Nous agissons concrètement pour améliorer la qualité de vie au Cameroun grâce à des projets durables et impactants.
+                    </p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-[#C88E08] mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Construire des écoles et former des enseignants</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-[#C88E08] mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Fournir des soins médicaux et chirurgicaux essentiels</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-[#C88E08] mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Distribuer du matériel paramédical pour l'autonomie</span>
+                        </li>
+                    </ul>
+                    <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-primary">
+                        <blockquote class="italic">
+                            "Grâce à mon parrain Abongo, je peux aller à l'école et j'ai un repas chaque jour. Quand je serai grand, je veux devenir médecin."
+                        </blockquote>
+                        <div class="mt-4 font-medium">- Fatou, 8 ans, élève parrainée</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Actions section -->
+    <section id="actions" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-display font-bold mb-4">Nos actions sur le terrain</h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    Découvre comment ton don est utilisé pour transformer des vies.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                    <img src="assets/img/team.avif" 
+                         alt="Équipe d'Abongo travaillant sur un projet éducatif" 
+                         class="w-full h-48 object-cover" 
+                         width="400" 
+                         height="300" 
+                         loading="lazy" 
+                         decoding="async"
+                         fetchpriority="low">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 rounded-full bg-primary bg-opacity-10 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                    <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-display font-bold ml-3">Éducation</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Visite et soutien au CAESEDA, un centre spécialisé pour enfants malentendants, avec distribution de matériel didactique et fournitures scolaires.
+                        </p>
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Actions prévues</span>
+                                <span class="font-medium">2024-2025</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <a href="#" class="text-primary font-medium hover:underline inline-flex items-center focus-visible:outline-primary focus-visible:outline-2">
+                            Voir les résultats
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                    <img src="assets/img/nourriture.avif" 
+                         alt="Distribution de nourriture aux enfants" 
+                         class="w-full h-48 object-cover" 
+                         width="400" 
+                         height="300" 
+                         loading="lazy" 
+                         decoding="async"
+                         fetchpriority="low">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 rounded-full bg-secondary bg-opacity-10 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-secondary" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-display font-bold ml-3">Projet de chirurgie ORL</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Soins médicaux et chirurgicaux pour les enfants malentendants, organisation d'interventions et suivi médical pour janvier-février 2025.
+                        </p>
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Date prévue</span>
+                                <span class="font-medium">Jan-Fév 2025</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-secondary h-2 rounded-full" style="width: 40%"></div>
+                            </div>
+                        </div>
+                        <a href="#" class="text-primary font-medium hover:underline inline-flex items-center focus-visible:outline-primary focus-visible:outline-2">
+                            Voir les résultats
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                    <img src="assets/img/food2.avif" 
+                         alt="Distribution de repas aux enfants" 
+                         class="w-full h-48 object-cover" 
+                         width="400" 
+                         height="300" 
+                         loading="lazy" 
+                         decoding="async"
+                         fetchpriority="low">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 rounded-full bg-accent bg-opacity-10 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-display font-bold ml-3">Aide à la mobilité</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Distribution de matériel paramédical pour aider à la mobilité et à l'autonomie : fauteuils roulants, cannes, béquilles et autres équipements.
+                        </p>
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Action en cours</span>
+                                <span class="font-medium">2024-2025</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full" style="width: 32%"></div>
+                            </div>
+                        </div>
+                        <a href="#" class="text-primary font-medium hover:underline inline-flex items-center focus-visible:outline-primary focus-visible:outline-2">
+                            Voir les résultats
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Impact section with scrollytelling -->
+    <section id="impact-story" class="relative h-[400vh]">
+      <!-- Fixed container -->
+      <div class="sticky top-0 h-screen flex items-center overflow-hidden">
+        <!-- Scrolling content -->
+        <div class="container mx-auto px-4">
+          <!-- Étape 1 -->
+          <div data-step="1" class="absolute inset-0 flex items-center opacity-0 transition-opacity duration-500">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h3 class="text-secondary font-display text-2xl mb-4">Problème</h3>
+                <p class="text-4xl font-bold mb-6">1 enfant sur 3 ne va pas à l'école au Cameroun rural</p>
+                <p>Dans les villages où nous intervenons, les enfants parcourent jusqu'à 10km pour atteindre l'école la plus proche.</p>
+              </div>
+              <div>
+                <img src="assets/img/emilienne.avif" alt="Enfant marchant seul sur une route" 
+                     class="rounded-xl shadow-2xl w-full h-96 object-cover"
+                     loading="lazy" decoding="async">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Étape 2 -->
+          <div data-step="2" class="absolute inset-0 flex items-center opacity-0 transition-opacity duration-500">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h3 class="text-accent font-display text-2xl mb-4">Solution</h3>
+                <p class="text-4xl font-bold mb-6">Nous construisons des écoles de proximité</p>
+                <p>Depuis 2010, 15 écoles ont été bâties avec des matériaux locaux et des enseignants formés.</p>
+              </div>
+              <div>
+                <img src="assets/img/team.avif" alt="Communauté construisant une école" 
+                     class="rounded-xl shadow-2xl w-full h-96 object-cover"
+                     loading="lazy" decoding="async">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Étape 3 -->
+          <div data-step="3" class="absolute inset-0 flex items-center opacity-0 transition-opacity duration-500">
+            <div class="text-center max-w-4xl mx-auto">
+              <h3 class="text-primary font-display text-2xl mb-4">Résultat</h3>
+              <p class="text-4xl font-bold mb-6">98% de réussite scolaire dans nos écoles</p>
+              <div class="grid grid-cols-3 gap-8 mt-12">
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                  <div class="text-5xl font-display font-bold text-primary mb-3">1,287</div>
+                  <div>Enfants scolarisés</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                  <div class="text-5xl font-display font-bold text-primary mb-3">47</div>
+                  <div>Villages impactés</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                  <div class="text-5xl font-display font-bold text-primary mb-3">100%</div>
+                  <div>De dons sur le terrain</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script type="module">
+      import { ScrollTrigger } from 'https://cdn.skypack.dev/gsap@3.11.4/ScrollTrigger';
+      import { gsap } from 'https://cdn.skypack.dev/gsap@3.11.4';
+      
+      gsap.registerPlugin(ScrollTrigger);
+      
+      const steps = gsap.utils.toArray('[data-step]');
+      steps.forEach((step, i) => {
+        ScrollTrigger.create({
+          trigger: "#impact-story",
+          start: () => `${i * 100 / steps.length}%`,
+          end: () => `${(i + 1) * 100 / steps.length}%`,
+          onEnter: () => {
+            steps.forEach(s => s.style.opacity = 0);
+            step.style.opacity = 1;
+          },
+          onEnterBack: () => {
+            steps.forEach(s => s.style.opacity = 0);
+            step.style.opacity = 1;
+          }
+        });
+      });
+    </script>
+    
+    <!-- Besoins section -->
+    <section id="besoins" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-display font-bold mb-4">Nos besoins</h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    Pour continuer notre mission, nous avons besoin de votre soutien dans plusieurs domaines clés.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl border-t-4 border-primary">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                </div>
+                        <h3 class="text-xl font-display font-bold">Financement</h3>
+                </div>
+                    <p class="text-gray-600">
+                        Nous avons besoin de financement pour l'achat de matériel didactique et de fournitures scolaires pour les enfants défavorisés et les écoles que nous soutenons.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl border-t-4 border-secondary">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-secondary bg-opacity-10 flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                            </svg>
+                </div>
+                        <h3 class="text-xl font-display font-bold">Développement de projets</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        Nous développons des projets basés sur les demandes des écoles et des institutions spécialisées pour la prise en charge des handicaps ou des dépendances.
+                    </p>
+            </div>
+            
+                <div class="bg-gray-50 p-8 rounded-xl border-t-4 border-accent">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-accent bg-opacity-10 flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-display font-bold">Transport d'équipements</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        Nous avons besoin d'assistance pour le transport de matériel médical ou scolaire, tant petit que grand, vers les différentes régions du Cameroun où nous intervenons.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#don" class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition focus-visible:outline-primary focus-visible:outline-2">
+                    Comment nous aider
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Galerie photos -->
+    <section id="galerie" class="py-20 bg-sand">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-display font-bold mb-8 text-center">Nos actions en images</h2>
+            <p class="text-lg text-center max-w-3xl mx-auto mb-12">Découvrez en images nos différentes actions sur le terrain au Cameroun : distribution de fournitures scolaires, soins médicaux, aide à la mobilité et construction d'infrastructures.</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Image 1 -->
+                <div class="image-overlay overflow-hidden rounded-lg shadow-lg group">
+                    <img src="distribution-fournitures.webp" 
+                         alt="Distribution de fournitures scolaires aux enfants dans une école rurale" 
+                         class="w-full aspect-[4/3] object-cover transform group-hover:scale-105 transition duration-300" 
+                         width="600" 
+                         height="450" 
+                             loading="lazy" 
+                             decoding="async">
+                    <div class="absolute inset-0 flex items-end p-4 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white font-medium">Distribution de fournitures scolaires dans une école rurale de la région de l'Est (2023)</p>
+                        </div>
+                    </div>
+                
+                <!-- Image 2 -->
+                <div class="image-overlay overflow-hidden rounded-lg shadow-lg group">
+                    <img src="consultation-medicale.webp" 
+                         alt="Consultation médicale pour un enfant malentendant" 
+                         class="w-full aspect-[4/3] object-cover transform group-hover:scale-105 transition duration-300" 
+                         width="600" 
+                         height="450" 
+                         loading="lazy" 
+                         decoding="async">
+                    <div class="absolute inset-0 flex items-end p-4 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white font-medium">Consultation médicale pour un enfant malentendant par notre équipe médicale bénévole (2024)</p>
+                    </div>
+                </div>
+                
+                <!-- Image 3 -->
+                <div class="image-overlay overflow-hidden rounded-lg shadow-lg group">
+                    <img src="fauteuil-roulant.webp" 
+                         alt="Remise d'un fauteuil roulant à une personne handicapée" 
+                         class="w-full aspect-[4/3] object-cover transform group-hover:scale-105 transition duration-300" 
+                         width="600" 
+                         height="450" 
+                             loading="lazy" 
+                             decoding="async">
+                    <div class="absolute inset-0 flex items-end p-4 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white font-medium">Remise d'un fauteuil roulant à une personne handicapée dans un village isolé (2023)</p>
+                        </div>
+                    </div>
+                
+                <!-- Image 4 -->
+                <div class="image-overlay overflow-hidden rounded-lg shadow-lg group">
+                    <img src="construction-ecole.webp" 
+                         alt="Construction d'une école dans un village rural" 
+                         class="w-full aspect-[4/3] object-cover transform group-hover:scale-105 transition duration-300" 
+                         width="600" 
+                         height="450" 
+                         loading="lazy" 
+                         decoding="async">
+                    <div class="absolute inset-0 flex items-end p-4 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white font-medium">Construction d'une salle de classe dans un village rural de la région du Centre (2022)</p>
+                    </div>
+                </div>
+                
+                <!-- Image 5 -->
+                <div class="image-overlay overflow-hidden rounded-lg shadow-lg group">
+                    <img src="repas-enfants.webp" 
+                         alt="Distribution de repas aux enfants d'une école soutenue" 
+                         class="w-full aspect-[4/3] object-cover transform group-hover:scale-105 transition duration-300" 
+                         width="600" 
+                         height="450" 
+                         loading="lazy" 
+                         decoding="async">
+                    <div class="absolute inset-0 flex items-end p-4 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white font-medium">Distribution de repas aux enfants d'une école soutenue par l'association (2024)</p>
+                    </div>
+                </div>
+                
+                <!-- Image 6 -->
+                <div class="image-overlay overflow-hidden rounded-lg shadow-lg group">
+                    <img src="assets/img/papiertoilette.avif" 
+                         alt="Fournitures essentielles: livraison de papier toilette pour les écoles" 
+                         class="w-full aspect-[4/3] object-cover transform group-hover:scale-105 transition duration-300" 
+                         width="600" 
+                         height="450" 
+                         loading="lazy" 
+                         decoding="async">
+                    <div class="absolute inset-0 flex items-end p-4 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white font-medium">Livraison de fournitures essentielles : le papier toilette, un produit de base souvent négligé (2023)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <button id="voir-plus-photos" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium transition shadow-md focus-visible:outline-primary focus-visible:outline-2">
+                    Voir plus de photos
+                </button>
+                
+                <!-- Modal de galerie (caché par défaut) -->
+                <div id="galerie-modal" class="fixed inset-0 z-50 hidden">
+                    <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+                    <div class="relative w-full max-w-6xl max-h-screen mx-auto my-8 overflow-y-auto">
+                        <button id="fermer-galerie" class="absolute top-4 right-4 text-white bg-primary/80 p-2 rounded-full z-10">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" focusable="false">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                            <span class="sr-only">Fermer la galerie</span>
+                        </button>
+                        
+                        <div class="p-4">
+                            <div id="galerie-complete" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                                <!-- Les images seront chargées dynamiquement ici -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-display font-bold mb-8 text-center">Questions fréquentes</h2>
+            <p class="text-lg text-center max-w-3xl mx-auto mb-12">Vous avez des questions sur notre association, nos actions ou comment nous aider ? Retrouvez ici les réponses aux questions les plus fréquentes.</p>
+            
+            <div class="max-w-3xl mx-auto divide-y divide-gray-200">
+                <!-- Question 1 -->
+                <div class="py-6">
+                    <button class="faq-question w-full flex justify-between items-center text-left focus-visible:outline-primary focus-visible:outline-2" aria-expanded="false">
+                        <span class="text-xl font-medium">Comment puis-je faire un don ?</span>
+                        <svg class="faq-icon w-6 h-6 text-primary transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" focusable="false">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer mt-4 hidden">
+                        <p class="text-gray-600">
+                            Vous pouvez faire un don de plusieurs manières :
+                        </p>
+                        <ul class="list-disc pl-5 mt-2 space-y-2 text-gray-600">
+                            <li>Par virement bancaire sur notre compte (RIB disponible sur demande)</li>
+                            <li>Par chèque à l'ordre de "AbongoFrance-Camer"</li>
+                            <li>En ligne via notre plateforme sécurisée de paiement</li>
+                            <li>Par PayPal à l'adresse : abongofrance@yahoo.fr</li>
+                        </ul>
+                        <p class="text-gray-600 mt-2">
+                            Nous vous enverrons un reçu fiscal qui vous permettra de déduire 66% de votre don de votre impôt sur le revenu.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Question 2 -->
+                <div class="py-6">
+                    <button class="faq-question w-full flex justify-between items-center text-left focus-visible:outline-primary focus-visible:outline-2" aria-expanded="false">
+                        <span class="text-xl font-medium">Comment sont utilisés les dons ?</span>
+                        <svg class="faq-icon w-6 h-6 text-primary transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" focusable="false">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer mt-4 hidden">
+                        <p class="text-gray-600">
+                            100% de vos dons sont utilisés directement pour nos projets au Cameroun. Tous nos membres sont bénévoles, et nos frais de fonctionnement sont réduits au minimum et pris en charge par les cotisations des membres.
+                        </p>
+                        <p class="text-gray-600 mt-2">
+                            Voici la répartition de l'utilisation des dons :
+                        </p>
+                        <ul class="list-disc pl-5 mt-2 space-y-2 text-gray-600">
+                            <li>50% pour les projets d'éducation (construction d'écoles, matériel scolaire, formation des enseignants)</li>
+                            <li>40% pour les projets de santé (matériel médical, soins chirurgicaux, campagnes de prévention)</li>
+                            <li>10% pour l'aide d'urgence et l'aide à la mobilité (fauteuils roulants, béquilles)</li>
+                        </ul>
+                        <p class="text-gray-600 mt-2">
+                            Nous publions chaque année un rapport financier détaillé disponible sur demande.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Question 3 -->
+                <div class="py-6">
+                    <button class="faq-question w-full flex justify-between items-center text-left focus-visible:outline-primary focus-visible:outline-2" aria-expanded="false">
+                        <span class="text-xl font-medium">Comment devenir bénévole ?</span>
+                        <svg class="faq-icon w-6 h-6 text-primary transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" focusable="false">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer mt-4 hidden">
+                        <p class="text-gray-600">
+                            Nous accueillons avec plaisir toute personne souhaitant s'engager bénévolement pour notre cause. Vous pouvez nous aider de différentes manières :
+                        </p>
+                        <ul class="list-disc pl-5 mt-2 space-y-2 text-gray-600">
+                            <li>Participer à nos événements en France (collectes, concerts, ventes solidaires)</li>
+                            <li>Partager vos compétences (communication, gestion de projet, expertise médicale ou éducative)</li>
+                            <li>Participer à une mission sur le terrain au Cameroun</li>
+                            <li>Collecter du matériel médical ou scolaire</li>
+                        </ul>
+                        <p class="text-gray-600 mt-2">
+                            Pour devenir bénévole, contactez-nous par email à abongofrance@yahoo.fr ou par téléphone au 07 52 81 06 53.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Question 4 -->
+                <div class="py-6">
+                    <button class="faq-question w-full flex justify-between items-center text-left focus-visible:outline-primary focus-visible:outline-2" aria-expanded="false">
+                        <span class="text-xl font-medium">Comment parrainer un enfant ?</span>
+                        <svg class="faq-icon w-6 h-6 text-primary transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" focusable="false">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer mt-4 hidden">
+                        <p class="text-gray-600">
+                            Le parrainage permet à un enfant d'accéder à l'éducation et de recevoir un repas par jour à l'école. Pour parrainer un enfant, il suffit de :
+                        </p>
+                        <ul class="list-disc pl-5 mt-2 space-y-2 text-gray-600">
+                            <li>Remplir le formulaire de parrainage disponible sur notre site</li>
+                            <li>Choisir le montant de votre parrainage (à partir de 30€/mois)</li>
+                            <li>Mettre en place un virement automatique mensuel</li>
+                        </ul>
+                        <p class="text-gray-600 mt-2">
+                            En tant que parrain, vous recevrez régulièrement des nouvelles de votre filleul : photos, lettres, bulletins scolaires. Vous pourrez également lui écrire et, si vous le souhaitez, lui rendre visite lors d'un voyage au Cameroun.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Question 5 -->
+                <div class="py-6">
+                    <button class="faq-question w-full flex justify-between items-center text-left focus-visible:outline-primary focus-visible:outline-2" aria-expanded="false">
+                        <span class="text-xl font-medium">Comment participer au concert "Écho des Anges" ?</span>
+                        <svg class="faq-icon w-6 h-6 text-primary transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" focusable="false">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer mt-4 hidden">
+                        <p class="text-gray-600">
+                            Le concert caritatif "Écho des Anges" est organisé chaque année en décembre à Paris. Pour y participer :
+                        </p>
+                        <ul class="list-disc pl-5 mt-2 space-y-2 text-gray-600">
+                            <li>Achetez vos billets en ligne sur notre site ou via notre partenaire billeterie</li>
+                            <li>Réservez votre place en avance, les places sont limitées</li>
+                            <li>Partagez l'événement autour de vous</li>
+                        </ul>
+                        <p class="text-gray-600 mt-2">
+                            Si vous êtes artiste et souhaitez participer au concert, contactez-nous à echo@abongofrance-camer.com.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Donation section -->
+    <section id="don" class="py-20 bg-secondary text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-display font-bold mb-6">Chaque don compte</h2>
+                <p class="text-xl mb-10 max-w-2xl mx-auto">
+                    Avec seulement 30€ par mois, tu permets à un enfant d'aller à l'école et de recevoir un repas par jour.
+                </p>
+                
+                <div class="bg-white rounded-xl shadow-2xl p-8 text-dark">
+                    <h3 class="text-2xl font-display font-bold mb-6">Fais un don maintenant</h3>
+                    
+                    <form id="donation-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="amount" class="block mb-2 font-medium">Montant</label>
+                            <div class="grid grid-cols-3 gap-3">
+                                <button type="button" data-amount="15" class="donation-amount-btn py-3 px-4 border rounded-lg font-medium hover:bg-primary hover:text-white transition focus-visible:outline-primary focus-visible:outline-2">
+                                    15€
+                                </button>
+                                <button type="button" data-amount="30" class="donation-amount-btn py-3 px-4 border rounded-lg font-medium hover:bg-primary hover:text-white transition bg-primary text-white focus-visible:outline-primary focus-visible:outline-2">
+                                    30€
+                                </button>
+                                <button type="button" data-amount="50" class="donation-amount-btn py-3 px-4 border rounded-lg font-medium hover:bg-primary hover:text-white transition focus-visible:outline-primary focus-visible:outline-2">
+                                    50€
+                                </button>
+                            </div>
+                            <div class="mt-3 relative">
+                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                    €
+                                </div>
+                                <input type="number" id="custom-amount" class="border rounded-lg pl-8 py-3 w-full focus-visible:outline-primary focus-visible:outline-2" placeholder="Autre montant">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="frequency" class="block mb-2 font-medium">Fréquence</label>
+                            <select id="frequency" class="border rounded-lg py-3 px-4 w-full focus-visible:outline-primary focus-visible:outline-2">
+                                <option value="once">Don unique</option>
+                                <option value="monthly" selected>Mensuel</option>
+                                <option value="quarterly">Trimestriel</option>
+                                <option value="yearly">Annuel</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="name" class="block mb-2 font-medium">Nom complet</label>
+                            <input type="text" id="name" class="border rounded-lg py-3 px-4 w-full focus-visible:outline-primary focus-visible:outline-2" required>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block mb-2 font-medium">Email</label>
+                            <input type="email" id="email" class="border rounded-lg py-3 px-4 w-full focus-visible:outline-primary focus-visible:outline-2" required>
+                        </div>
+                        
+                        <div class="md:col-span-2">
+                            <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input id="tax-receipt" type="checkbox" class="w-4 h-4 border rounded focus-visible:outline-primary focus-visible:outline-2">
+                                </div>
+                                <label for="tax-receipt" class="ml-2 text-sm">
+                                    Je souhaite recevoir un reçu fiscal (66% du montant de votre don est déductible de vos impôts)
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="md:col-span-2">
+                            <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white py-4 px-6 rounded-lg font-bold text-lg transition focus-visible:outline-primary focus-visible:outline-2">
+                                Faire un don sécurisé
+                            </button>
+                            <div class="mt-3 flex justify-center items-center space-x-4">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/stripe/stripe-original.svg" 
+                                     alt="Stripe" 
+                                     class="h-8" 
+                                     width="32" 
+                                     height="32" 
+                                     loading="lazy" 
+                                     decoding="async">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/paypal/paypal-original.svg" 
+                                     alt="PayPal" 
+                                     class="h-8" 
+                                     width="32" 
+                                     height="32" 
+                                     loading="lazy" 
+                                     decoding="async">
+                            </div>
+                            <div class="text-center mt-2">
+                                <a href="https://www.payasso.fr/abongo/don" class="underline text-sm text-primary" target="_blank" rel="noopener">Faire un don via HelloAsso (0 % de frais)</a>
+                            </div>
+                            <details class="mt-6">
+                                <summary class="cursor-pointer font-medium text-primary">Virement bancaire (France)</summary>
+                                <div class="mt-2 text-sm">
+                                    IBAN : <code>FR76 1027 8016 1500 0203 8480 116</code><br>
+                                    BIC : <code>CMCIFR2A</code><br>
+                                    Banque : Crédit Mutuel
+                                </div>
+                            </details>
+                            <details class="mt-3">
+                                <summary class="cursor-pointer font-medium text-primary">Virement bancaire (Cameroun SCB)</summary>
+                                <div class="mt-2 text-sm">
+                                    IBAN : <code>CM21 1000 2000 0190 0015 1615 376</code><br>
+                                    BIC : <code>BCMACMCX</code>
+                                </div>
+                            </details>
+                            <p class="text-xs text-center mt-4 text-gray-500">
+                                Vos informations de paiement sont cryptées et sécurisées. AbongoFrance-Camer utilise Stripe et PayPal pour le traitement des paiements.
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Blog section -->
+    <section id="blog" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-display font-bold mb-4">Nos dernières actualités</h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    Suis nos actions sur le terrain et découvre les témoignages de ceux qui bénéficient de ta générosité.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                    <img src="school-inauguration.webp" 
+                         alt="Inauguration école Abongo" 
+                         class="w-full h-48 object-cover" 
+                         width="400" 
+                         height="300" 
+                         loading="lazy" 
+                         decoding="async">
+                    <div class="p-6">
+                        <div class="text-sm text-gray-500 mb-2">15 juin 2024</div>
+                        <h3 class="text-xl font-display font-bold mb-3">Inauguration de l'école de Bafoussam</h3>
+                        <p class="text-gray-600 mb-4">
+                            Après 8 mois de travaux, nous avons inauguré la nouvelle école primaire de Bafoussam qui accueillera 120 enfants dès la rentrée prochaine.
+                        </p>
+                        <a href="#" class="text-primary font-medium hover:underline inline-flex items-center focus-visible:outline-primary focus-visible:outline-2">
+                            Lire l'article
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+                
+                <!-- Article 2 -->
+                <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                    <img src="vaccination-campaign.webp" 
+                         alt="Campagne vaccination" 
+                         class="w-full h-48 object-cover" 
+                         width="400" 
+                         height="300" 
+                         loading="lazy" 
+                         decoding="async">
+                    <div class="p-6">
+                        <div class="text-sm text-gray-500 mb-2">2 juin 2024</div>
+                        <h3 class="text-xl font-display font-bold mb-3">Campagne de vaccination réussie</h3>
+                        <p class="text-gray-600 mb-4">
+                            Notre équipe médicale a vacciné plus de 500 enfants contre la rougeole et la polio lors d'une tournée dans 8 villages reculés.
+                        </p>
+                        <a href="#" class="text-primary font-medium hover:underline inline-flex items-center focus-visible:outline-primary focus-visible:outline-2">
+                            Lire l'article
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+                
+                <!-- Article 3 -->
+                <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                    <img src="humanitarian-mission.webp" 
+                         alt="Mission humanitaire" 
+                         class="w-full h-48 object-cover" 
+                         width="400" 
+                         height="300" 
+                         loading="lazy" 
+                         decoding="async">
+                    <div class="p-6">
+                        <div class="text-sm text-gray-500 mb-2">18 mai 2024</div>
+                        <h3 class="text-xl font-display font-bold mb-3">Mission humanitaire printemps 2024</h3>
+                        <p class="text-gray-600 mb-4">
+                            Retour en images sur notre dernière mission humanitaire avec les bénévoles venus de France pour soutenir nos actions sur place.
+                        </p>
+                        <a href="#" class="text-primary font-medium hover:underline inline-flex items-center focus-visible:outline-primary focus-visible:outline-2">
+                            Lire l'article
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-white transition focus-visible:outline-primary focus-visible:outline-2">
+                    Voir toutes les actualités
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Docs section -->
+    <section id="docs" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-display font-bold mb-4">Budget & rapports</h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    Transparence financière totale : consultez nos rapports d'activité et découvrez comment vos dons sont utilisés.
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-md">
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="md:w-1/3 flex justify-center">
+                        <img src="budget-preview.jpg" alt="Aperçu du rapport budgétaire" class="max-w-full h-auto shadow-md rounded-lg" width="300" height="400" loading="lazy" decoding="async" fetchpriority="low">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-xl font-display font-bold mb-4">Notre budget</h3>
+                        <p class="mb-4">
+                            L'association AbongoFrance-Camer fonctionne exclusivement grâce à des sources de revenus variées :
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-primary mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Dons de particuliers</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-primary mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Ventes d'artisanat</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-primary mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Concerts et événements</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-primary mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Soutien d'entreprises partenaires</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="inline-flex items-center px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-medium transition focus-visible:outline-primary focus-visible:outline-2">
+                            Télécharger notre budget PDF
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Echo des Anges section -->
+    <section id="echo" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-display font-bold mb-4">Concert "L'Écho des Anges"</h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    Notre évènement caritatif phare pour soutenir nos actions au Cameroun.
+                </p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-12 items-center max-w-5xl mx-auto">
+                <div class="md:w-1/2">
+                    <div class="image-overlay">
+                        <img src="assets/img/video.avif" alt="Concert L'Écho des Anges en action" class="rounded-xl shadow-lg w-full" width="600" height="400" loading="lazy" decoding="async" fetchpriority="low">
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-display font-bold mb-4">Un évènement musical solidaire</h3>
+                    <p class="mb-6">
+                        "L'Écho des Anges" est un concert caritatif organisé chaque année à Berg pour soutenir nos actions au Cameroun. Cet événement rassemble musiciens et public dans une ambiance festive et solidaire.
+                    </p>
+                    <p class="mb-6">
+                        Les fonds collectés lors de ce concert nous permettent de financer nos projets d'éducation et de santé, notamment l'achat de matériel scolaire et médical.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#" class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition focus-visible:outline-primary focus-visible:outline-2">
+                            Prochain évènement
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="inline-flex items-center px-6 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-white transition focus-visible:outline-primary focus-visible:outline-2">
+                            Photos des éditions précédentes
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="bg-white rounded-xl shadow-md p-8 md:p-12">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-display font-bold mb-2">Restez informés</h3>
+                    <p class="text-gray-600">
+                        Abonne-toi à notre newsletter pour recevoir nos actualités et les rapports d'impact de nos actions.
+                    </p>
+                </div>
+                
+                <form class="flex flex-col sm:flex-row gap-4">
+                    <input type="email" placeholder="Votre email" class="flex-grow border rounded-lg py-3 px-4 focus-visible:outline-primary focus-visible:outline-2" required>
+                    <button type="submit" class="bg-primary hover:bg-primary/90 text-white py-3 px-6 rounded-lg font-medium transition whitespace-nowrap focus-visible:outline-primary focus-visible:outline-2">
+                        S'abonner
+                    </button>
+                </form>
+                
+                <p class="text-xs text-center mt-4 text-gray-500">
+                    Nous respectons ta vie privée. Tu peux te désabonner à tout moment.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Social media section -->
+    
+    <!-- Contact section -->
+    <section id="contact" class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-16">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-display font-bold mb-6">Contactez-nous</h2>
+                    <p class="text-lg mb-8">
+                        Nous sommes à votre disposition pour répondre à toutes vos questions sur nos actions, nos besoins ou comment vous pouvez nous aider. N'hésitez pas à nous contacter.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-white/10 p-3 rounded-full mr-4">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" focusable="false">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            </div>
+                        </div>
+                            </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Team section -->
+    <section id="equipe" class="py-20 bg-sand">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-display font-bold mb-4">Notre équipe</h2>
+                <p class="text-lg max-w-2xl mx-auto">
+                    Découvrez les personnes dévouées qui travaillent sans relâche pour faire une différence au Cameroun.
+                </p>
+                </div>
+                
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Team member 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition text-center">
+                    <img src="assets/img/charlotte.avif" 
+                         alt="Charlotte - Fondatrice et Présidente" 
+                         class="w-full h-64 object-cover" 
+                         width="300" 
+                         height="300" 
+                         loading="lazy" 
+                         decoding="async">
+                    <div class="p-6">
+                        <h3 class="text-xl font-display font-bold mb-1">Charlotte</h3>
+                        <p class="text-primary mb-4">Fondatrice et Présidente</p>
+                        <p class="text-gray-600 mb-4">
+                            Engagée depuis plus de 15 ans dans l'humanitaire, Charlotte coordonne toutes nos actions sur le terrain.
+                        </p>
+                </div>
+                </div>
+                
+                <!-- Team member 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition text-center">
+                    <img src="assets/img/emilienne.avif" 
+                         alt="Émilienne - Directrice des opérations" 
+                         class="w-full h-64 object-cover" 
+                         width="300" 
+                         height="300" 
+                         loading="lazy" 
+                         decoding="async">
+                    <div class="p-6">
+                        <h3 class="text-xl font-display font-bold mb-1">Émilienne</h3>
+                        <p class="text-primary mb-4">Directrice des opérations</p>
+                        <p class="text-gray-600 mb-4">
+                            Basée au Cameroun, Émilienne supervise l'ensemble de nos projets sur place et assure le suivi des actions.
+                        </p>
+                </div>
+            </div>
+            
+                <!-- Team member 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition text-center">
+                    <img src="assets/img/ezechiel.avif" 
+                         alt="Ézéchiel - Coordinateur médical" 
+                         class="w-full h-64 object-cover" 
+                         width="300" 
+                         height="300" 
+                         loading="lazy" 
+                         decoding="async">
+                    <div class="p-6">
+                        <h3 class="text-xl font-display font-bold mb-1">Ézéchiel</h3>
+                        <p class="text-primary mb-4">Coordinateur médical</p>
+                        <p class="text-gray-600 mb-4">
+                            Médecin de formation, Ézéchiel coordonne tous nos projets de santé et les missions chirurgicales.
+                        </p>
+                    </div>
+                    </div>
+    
+                <!-- Team member 4 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition text-center">
+                    <img src="assets/img/Bourgeois.avif" 
+                         alt="Bourgeois - Responsable logistique" 
+                         class="w-full h-64 object-cover" 
+                         width="300" 
+                         height="300" 
+                         loading="lazy" 
+                         decoding="async">
+                    <div class="p-6">
+                        <h3 class="text-xl font-display font-bold mb-1">Bourgeois</h3>
+                        <p class="text-primary mb-4">Responsable logistique</p>
+                        <p class="text-gray-600 mb-4">
+                            Bourgeois gère toute la logistique et le transport du matériel médical et scolaire vers les différentes régions.
+                    </p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
