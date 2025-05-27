@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Distribution Alimentaire - AbongoFrance-Camer</title>
+  <meta name="description" content="Programme d'aide alimentaire d'urgence pour les familles démunies au Cameroun">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brun-fonce': '#3E2723',
+            'brun': '#5D4037',
+            'brun-clair': '#795548',
+            'beige': '#D7CCC8',
+            'beige-clair': '#EFEBE9',
+            'creme': '#FFF8E1',
+            'accent': '#E1306C',
+            'beige': '#D7CCC8',
+            'beige-clair': '#EFEBE9',
+            'creme': '#FFF8E1',
+            'accent': '#E1306C',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="font-sans text-brun-fonce bg-creme">
+
+<!-- Header simple avec navigation -->
+<header class="bg-beige-clair shadow-md sticky top-0 z-50">
+  <div class="container mx-auto px-4 py-3">
+    <div class="flex justify-between items-center">
+      <a href="index.html" class="flex items-center">
+        <img src="assets/img/Logo/Logo.jpg" alt="Logo" class="w-12 h-12 rounded-full mr-3">
+        <h1 class="text-lg font-bold text-brun-fonce">ABONGOFRANCE-CAMER</h1>
+      </a>
+      <nav class="flex items-center space-x-4">
+        <a href="index.html" class="text-brun hover:text-brun-fonce transition">
+          <i class="fas fa-home mr-2"></i>Accueil
+        </a>
+        <a href="index.html#faire-un-don" class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
+          <i class="fas fa-heart mr-2"></i>Faire un don
+        </a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- Hero section du projet -->
+<section class="relative h-96 bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/img/soda1.jpeg')">
+  <div class="absolute inset-0 flex items-center justify-center text-white">
+    <div class="text-center px-4">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Distribution Alimentaire</h1>
+      <p class="text-xl max-w-2xl mx-auto">
+        Lutter contre la faim et la malnutrition au Cameroun
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Breadcrumb -->
+<div class="bg-beige py-3">
+  <div class="container mx-auto px-4">
+    <nav class="text-sm">
+      <a href="index.html" class="text-brun hover:text-brun-fonce">Accueil</a>
+      <span class="mx-2">/</span>
+      <a href="index.html#projets" class="text-brun hover:text-brun-fonce">Projets</a>
+      <span class="mx-2">/</span>
+      <span class="text-accent font-medium">Distribution Alimentaire</span>
+    </nav>
+  </div>
+</div>
+
+<!-- Contenu principal -->
+<main class="py-12">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto">
+      
+      <!-- Introduction -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-6 text-brun-fonce">Le contexte</h2>
+        <p class="text-lg text-brun leading-relaxed mb-4">
+          Au Cameroun, de nombreuses familles vivent dans une précarité extrême, particulièrement dans les zones rurales. 
+          La crise économique et les conflits régionaux ont aggravé la situation alimentaire de milliers de personnes.
+        </p>
+        <p class="text-lg text-brun leading-relaxed">
+          Face à cette urgence, AbongoFrance-Camer a mis en place un programme de distribution alimentaire régulière 
+          pour soutenir les familles les plus vulnérables et garantir un minimum vital à chaque enfant.
+        </p>
+      </section>
+
+      <!-- Statistiques clés -->
+      <section class="mb-12 bg-beige-clair rounded-lg p-8">
+        <h3 class="text-2xl font-bold mb-6 text-center text-brun-fonce">Impact du programme</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div>
+            <div class="text-4xl font-bold text-accent mb-2">500+</div>
+            <p class="text-brun">Familles bénéficiaires</p>
+          </div>
+          <div>
+            <div class="text-4xl font-bold text-accent mb-2">2000+</div>
+            <p class="text-brun">Enfants nourris</p>
+          </div>
+          <div>
+            <div class="text-4xl font-bold text-accent mb-2">12</div>
+            <p class="text-brun">Distributions par an</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Notre action -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-6 text-brun-fonce">Notre action concrète</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          <div>
+            <img src="assets/img/food.avif" alt="Distribution de nourriture" class="rounded-lg shadow-lg w-full">
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-brun-fonce">Distribution mensuelle</h3>
+            <p class="text-brun mb-4">
+              Chaque mois, nos équipes organisent des distributions dans les villages les plus reculés. 
+              Les colis alimentaires contiennent :
+            </p>
+            <ul class="list-disc list-inside text-brun space-y-2">
+              <li>Riz, maïs et autres céréales de base</li>
+              <li>Huile de cuisine et condiments</li>
+              <li>Légumineuses (haricots, lentilles)</li>
+              <li>Produits d'hygiène essentiels</li>
+              <li>Lait en poudre pour les enfants</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-brun-fonce">Aide d'urgence</h3>
+            <p class="text-brun mb-4">
+              En cas de crise (inondations, conflits), nous intervenons rapidement avec des distributions 
+              exceptionnelles pour répondre aux besoins urgents des populations affectées.
+            </p>
+            <p class="text-brun">
+              Notre réseau de bénévoles locaux nous permet d'identifier rapidement les familles 
+              en situation de détresse et d'agir efficacement.
+            </p>
+          </div>
+          <div>
+            <img src="assets/img/nourriture.avif" alt="Préparation des colis" class="rounded-lg shadow-lg w-full">
+          </div>
+        </div>
+      </section>
+
+      <!-- Témoignage -->
+      <section class="mb-12 bg-beige rounded-lg p-8">
+        <div class="flex items-start">
+          <i class="fas fa-quote-left text-4xl text-accent mr-4"></i>
+          <div>
+            <p class="text-lg italic text-brun mb-4">
+              "Grâce aux distributions d'AbongoFrance-Camer, mes enfants peuvent manger à leur faim. 
+              C'est un soulagement immense pour notre famille. Nous ne savons pas comment les remercier 
+              pour leur générosité constante."
+            </p>
+            <p class="font-semibold text-brun-fonce">- Mama Félicité, mère de 5 enfants</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Comment aider -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-6 text-brun-fonce">Comment nous aider ?</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-beige-clair rounded-lg shadow-lg p-6 text-center">
+            <div class="w-16 h-16 bg-brun/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-euro-sign text-2xl text-brun"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2 text-brun-fonce">Don financier</h3>
+            <p class="text-brun mb-4">30€ permettent de nourrir une famille pendant un mois</p>
+            <a href="index.html#faire-un-don" class="text-accent font-semibold hover:underline">
+              Faire un don →
+            </a>
+          </div>
+          
+          <div class="bg-beige-clair rounded-lg shadow-lg p-6 text-center">
+            <div class="w-16 h-16 bg-brun/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-box text-2xl text-brun"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2 text-brun-fonce">Don en nature</h3>
+            <p class="text-brun mb-4">Collecte de denrées non périssables</p>
+            <a href="index.html#contact" class="text-accent font-semibold hover:underline">
+              Nous contacter →
+            </a>
+          </div>
+          
+          <div class="bg-beige-clair rounded-lg shadow-lg p-6 text-center">
+            <div class="w-16 h-16 bg-brun/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-hands-helping text-2xl text-brun"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2 text-brun-fonce">Bénévolat</h3>
+            <p class="text-brun mb-4">Participez aux distributions sur le terrain</p>
+            <a href="index.html#contact" class="text-accent font-semibold hover:underline">
+              Devenir bénévole →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Galerie photos -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-6 text-brun-fonce">Galerie photos</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <img src="assets/img/soda1.jpeg" alt="Distribution" class="rounded-lg shadow-lg w-full h-64 object-cover">
+          <img src="assets/img/food2.avif" alt="Colis alimentaires" class="rounded-lg shadow-lg w-full h-64 object-cover">
+          <img src="assets/img/nourriture.avif" alt="Bénéficiaires" class="rounded-lg shadow-lg w-full h-64 object-cover">
+        </div>
+      </section>
+
+      <!-- Call to action -->
+      <section class="bg-brun text-beige-clair rounded-lg p-8 text-center">
+        <h2 class="text-3xl font-bold mb-4">Ensemble, luttons contre la faim</h2>
+        <p class="text-xl mb-6">
+          Votre soutien permet de garantir la sécurité alimentaire de centaines de familles
+        </p>
+        <a href="index.html#faire-un-don" class="bg-accent text-white px-8 py-3 rounded-lg font-bold hover:bg-red-700 transition inline-block">
+          <i class="fas fa-heart mr-2"></i>Faire un don maintenant
+        </a>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<!-- Footer simple -->
+<footer class="bg-brun-fonce text-beige-clair py-8 mt-12">
+  <div class="container mx-auto px-4 text-center">
+    <p class="mb-4">© 2025 AbongoFrance-Camer. Tous droits réservés.</p>
+    <div class="flex justify-center space-x-4">
+      <a href="https://www.facebook.com/abongofrance.camer/" target="_blank" class="hover:text-accent">
+        <i class="fab fa-facebook text-2xl"></i>
+      </a>
+      <a href="mailto:abongofrance@yahoo.fr" class="hover:text-accent">
+        <i class="fas fa-envelope text-2xl"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html> 

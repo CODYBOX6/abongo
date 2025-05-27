@@ -16,13 +16,19 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#007A5E',
-                        secondary: '#CE1126',
-                        accent: '#FCD116',
+                        'brun-fonce': '#3E2723',
+                        'brun': '#5D4037',
+                        'brun-clair': '#795548',
+                        'beige': '#D7CCC8',
+                        'beige-clair': '#EFEBE9',
+                        'creme': '#FFF8E1',
+                        'accent': '#E1306C',
+                        primary: '#5D4037',
+                        secondary: '#E1306C',
                         brown: '#5C4033',
                         sand: '#F4E5D1',
-                        dark: '#1A202C',
-                        light: '#FFFFFF'
+                        dark: '#3E2723',
+                        light: '#FFF8E1'
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -35,11 +41,11 @@
     
     <style>
         :root {
-            --color-primary: #007A5E;
-            --color-secondary: #CE1126;
-            --color-accent: #FCD116;
+            --color-primary: #5D4037;
+            --color-secondary: #E1306C;
+            --color-accent: #E1306C;
             --color-brown: #5C4033;
-            --color-sand: #F4E5D1;
+            --color-sand: #FFF8E1;
         }
         
         body {
@@ -56,9 +62,9 @@
         }
     </style>
 </head>
-<body class="font-sans text-dark antialiased">
+<body class="font-sans text-brun-fonce antialiased bg-creme">
     <!-- Header avec navigation -->
-    <header class="sticky top-0 z-50 bg-white shadow-md" role="banner">
+    <header class="sticky top-0 z-50 bg-beige-clair shadow-md" role="banner">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="/" class="flex items-center flex-col" aria-label="Accueil AbongoFrance-Camer">
                 <div class="flex items-center">
