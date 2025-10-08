@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AbongoFrance-Camer | Association humanitaire pour l'éducation et la santé au Cameroun</title>
+  <meta name="description" content="AbongoFrance-Camer est une association 100% bénévole, œuvrant pour l'éducation et la santé au Cameroun. Chaque euro va directement sur le terrain.">
+  
+  <!-- TailwindCSS + FontAwesome -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Swiper CSS pour le carousel -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  
+  <!-- Configuration Tailwind avec palette brun et blanc cassé -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+            'brun-fonce': '#3E2723',
+            'brun': '#5D4037',
+            'brun-clair': '#795548',
+            'beige': '#D7CCC8',
+            'beige-clair': '#EFEBE9',
+            'creme': '#FFF8E1',
+            'accent': '#E1306C',
+                    }
+                }
+            }
+        }
+    </script>
+    
+  <style>
+    /* Hero avec image de bannière */
+    .hero-banner {
+      background-image: linear-gradient(rgba(62, 39, 35, 0.7), rgba(62, 39, 35, 0.7)), url('assets/img/ecole/soda1.jpeg');
+      background-size: cover;
+      background-position: center;
+    }
+    
+    /* Animations */
+    .fade-in {
+      animation: fadeIn 0.8s ease-in;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Swiper customization */
+    .swiper-button-next, .swiper-button-prev {
+      color: #5D4037 !important;
+    }
+    
+    .swiper-pagination-bullet-active {
+      background: #5D4037 !important;
+    }
+    
+    /* Gallery hover effect */
+    .gallery-item {
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .gallery-item img {
+      transition: transform 0.3s ease;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+    
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(62, 39, 35, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #EFEBE9;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: #795548;
+      border-radius: 5px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: #5D4037;
+    }
+  </style>
+</head>
+
+<body class="font-sans text-brun-fonce bg-creme">
+
+<!-- HEADER -->
+<header class="bg-beige-clair shadow-md sticky top-0 z-50">
+  <div class="container mx-auto px-4 py-3">
+    <div class="flex justify-between items-center">
+      <!-- Logo + Nom association -->
+      <div class="flex items-center">
+        <img src="assets/img/Logo/Logo.jpg" alt="Logo AbongoFrance-Camer" class="w-16 h-16 rounded-full mr-3 border-2 border-brun">
+        <div>
+          <h1 class="text-xl font-bold text-brun-fonce">ABONGOFRANCE-CAMER</h1>
+          <p class="text-xs text-brun">Aide humanitaire pour le Cameroun</p>
+        </div>
+    </div>
+    
+      <!-- Menu desktop -->
+      <nav class="hidden md:flex space-x-6 lg:space-x-8">
+        <a href="#mission" class="text-brun hover:text-brun-fonce transition font-medium">Mission</a>
+        <a href="#projets" class="text-brun hover:text-brun-fonce transition font-medium">Projets</a>
+        <a href="#galerie" class="text-brun hover:text-brun-fonce transition font-medium">Galerie</a>
+        <a href="#equipe" class="text-brun hover:text-brun-fonce transition font-medium">Équipe</a>
+        <a href="#temoignages" class="text-brun hover:text-brun-fonce transition font-medium">Témoignages</a>
+        <a href="#faire-un-don" class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-red-700 transition font-medium shadow-md">
+          <i class="fas fa-heart"></i>
+        </a>
+            </nav>
+            
+      <!-- Menu mobile -->
+      <button class="md:hidden text-brun-fonce" id="mobile-menu-btn">
+        <i class="fas fa-bars text-2xl"></i>
+                </button>
+        </div>
+        
+    <!-- Menu mobile dropdown -->
+    <nav class="md:hidden mt-4 hidden" id="mobile-menu">
+      <div class="flex flex-col space-y-3 pb-4">
+        <a href="#mission" class="text-brun hover:text-brun-fonce transition font-medium">Mission</a>
+        <a href="#projets" class="text-brun hover:text-brun-fonce transition font-medium">Projets</a>
+        <a href="#galerie" class="text-brun hover:text-brun-fonce transition font-medium">Galerie</a>
+        <a href="#equipe" class="text-brun hover:text-brun-fonce transition font-medium">Équipe</a>
+        <a href="#temoignages" class="text-brun hover:text-brun-fonce transition font-medium">Témoignages</a>
+        <a href="#faire-un-don" class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-red-700 transition font-medium text-center">
+          <i class="fas fa-heart"></i>
+        </a>
+            </div>
+    </nav>
+        </div>
+    </header>
+    
+<!-- HERO SECTION -->
+<section class="hero-banner h-screen flex items-center justify-center text-white relative">
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent to-brun-fonce/50"></div>
+  <div class="text-center px-4 relative z-10 fade-in">
+    <h1 class="text-4xl md:text-6xl font-bold mb-6">Ensemble pour un Cameroun meilleur</h1>
+    <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-beige-clair">
+      Association 100% bénévole : chaque euro va directement sur le terrain pour l'éducation et la santé des enfants camerounais.
+    </p>
+    <div class="flex justify-center">
+      <a href="#faire-un-don" class="bg-accent text-white font-bold py-3 px-8 rounded-lg hover:bg-red-700 transition transform hover:scale-105 shadow-lg">
+        <i class="fas fa-heart mr-2"></i>Faire un don
+      </a>
+    </div>
+        </div>
+        
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <i class="fas fa-chevron-down text-3xl text-beige-clair"></i>
+                </div>
+</section>
+
+<!-- STATS SECTION -->
+<section class="bg-brun py-12">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center text-beige-clair">
+      <div class="fade-in">
+        <div class="text-4xl font-bold mb-2">15+</div>
+        <p class="text-lg font-medium">Années d'action</p>
+                </div>
+      <div class="fade-in">
+        <div class="text-4xl font-bold mb-2">100%</div>
+        <p class="text-lg font-medium">Bénévoles</p>
+                </div>
+      <div class="fade-in">
+        <div class="text-4xl font-bold mb-2">5000+</div>
+        <p class="text-lg font-medium">Enfants aidés</p>
+      </div>
+      <div class="fade-in">
+        <div class="text-4xl font-bold mb-2">50+</div>
+        <p class="text-lg font-medium">Projets réalisés</p>
+      </div>
+            </div>
+        </div>
+    </section>
+    
+<!-- MISSION SECTION -->
+<section id="mission" class="py-20 bg-beige-clair">
+        <div class="container mx-auto px-4">
+    <div class="flex flex-col lg:flex-row items-center gap-12">
+      <div class="lg:w-1/2 fade-in">
+        <img src="assets/img/mainphoto/banniere.jpeg" 
+             alt="Enfants camerounais bénéficiaires" 
+             class="rounded-lg shadow-xl w-full">
+                </div>
+      <div class="lg:w-1/2 fade-in">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-brun-fonce">Notre Mission</h2>
+        <p class="text-lg mb-6 text-brun leading-relaxed">
+          AbongoFrance-Camer est une association humanitaire franco-camerounaise œuvrant pour le bien-être des populations vulnérables au Cameroun. 
+          Notre action se concentre sur l'éducation, la santé et l'autonomisation des communautés locales.
+        </p>
+        <div class="space-y-6">
+          <!-- Éducation -->
+          <div class="flex items-start">
+            <div class="bg-brun/10 p-3 rounded-full mr-4 flex-shrink-0">
+              <i class="fas fa-graduation-cap text-brun text-xl"></i>
+                    </div>
+            <div>
+              <h3 class="font-bold text-xl text-brun-fonce mb-2">Éducation pour tous</h3>
+              <p class="text-brun">
+                Construction et équipement d'écoles, distribution de fournitures scolaires, 
+                bibliothèques communautaires et soutien aux enfants défavorisés.
+              </p>
+                </div>
+            </div>
+          
+          <!-- Santé -->
+          <div class="flex items-start">
+            <div class="bg-accent/10 p-3 rounded-full mr-4 flex-shrink-0">
+              <i class="fas fa-stethoscope text-accent text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-xl text-brun-fonce mb-2">Santé accessible</h3>
+              <p class="text-brun">
+                Campagnes médicales gratuites, chirurgie ORL pour enfants malentendants, 
+                distribution d'équipements médicaux et formation du personnel local.
+                </p>
+            </div>
+            </div>
+            
+          <!-- Autonomie -->
+          <div class="flex items-start">
+            <div class="bg-brun-clair/10 p-3 rounded-full mr-4 flex-shrink-0">
+              <i class="fas fa-hands-helping text-brun-clair text-xl"></i>
+                            </div>
+            <div>
+              <h3 class="font-bold text-xl text-brun-fonce mb-2">Autonomie & Dignité</h3>
+              <p class="text-brun">
+                Distribution d'aides à la mobilité, soutien alimentaire d'urgence, 
+                accompagnement des familles et inclusion des personnes handicapées.
+              </p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+  </div>
+</section>
+
+<!-- PROJETS CAROUSEL SECTION -->
+<section id="projets" class="py-20 bg-creme">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12 fade-in">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-brun-fonce">Nos Projets en Action</h2>
+      <p class="text-lg text-brun max-w-3xl mx-auto">
+        Découvrez nos différents projets qui transforment des vies au quotidien. 
+        Cliquez sur chaque projet pour en savoir plus.
+      </p>
+    </div>
+    
+    <!-- Swiper Carousel -->
+    <div class="swiper projectsSwiper fade-in">
+      <div class="swiper-wrapper">
+        
+        <!-- Projet 1: Distribution alimentaire -->
+        <div class="swiper-slide">
+          <div class="bg-beige-clair rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+            <img src="assets/img/soda1.jpeg" alt="Distribution alimentaire" class="w-full h-64 object-cover">
+                    <div class="p-6">
+              <h3 class="text-2xl font-bold mb-3 text-brun-fonce">Distribution alimentaire</h3>
+              <p class="text-brun mb-4">
+                Programme d'aide alimentaire d'urgence pour les familles les plus démunies. 
+                Distribution régulière de denrées de première nécessité.
+              </p>
+              <a href="projet-alimentation.html" class="inline-flex items-center text-accent font-semibold hover:underline">
+                En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+                            </div>
+                        </div>
+        </div>
+        
+        <!-- Projet 2: Bibliothèques -->
+        <div class="swiper-slide">
+          <div class="bg-beige-clair rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+            <img src="assets/img/livres/livres1.jpeg" alt="Bibliothèques communautaires" class="w-full h-64 object-cover">
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-3 text-brun-fonce">Bibliothèques communautaires</h3>
+              <p class="text-brun mb-4">
+                Création de bibliothèques dans les villages pour promouvoir la lecture 
+                et l'accès à l'éducation pour tous.
+              </p>
+              <a href="projet-bibliotheques.html" class="inline-flex items-center text-accent font-semibold hover:underline">
+                En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+                            </div>
+                            </div>
+                        </div>
+        
+        <!-- Projet 3: Campagne ophtalmologique -->
+        <div class="swiper-slide">
+          <div class="bg-beige-clair rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+            <img src="assets/img/opticien/opticien1.jpeg" alt="Soins ophtalmologiques" class="w-full h-64 object-cover">
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-3 text-brun-fonce">Campagne ophtalmologique</h3>
+              <p class="text-brun mb-4">
+                Consultations gratuites, distribution de lunettes et opérations 
+                pour redonner la vue aux plus démunis.
+              </p>
+              <a href="projet-ophtalmologie.html" class="inline-flex items-center text-accent font-semibold hover:underline">
+                En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+                    </div>
+                </div>
+                
+        <!-- Projet 4: Chirurgie ORL -->
+        <div class="swiper-slide">
+          <div class="bg-beige-clair rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+            <img src="assets/img/soins/chirugie.jpeg" alt="Chirurgie ORL" class="w-full h-64 object-cover">
+                    <div class="p-6">
+              <h3 class="text-2xl font-bold mb-3 text-brun-fonce">Chirurgie ORL</h3>
+              <p class="text-brun mb-4">
+                Opérations chirurgicales pour les enfants malentendants. 
+                Redonner l'ouïe et l'espoir à des centaines d'enfants.
+              </p>
+              <a href="projet-orl.html" class="inline-flex items-center text-accent font-semibold hover:underline">
+                En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+                            </div>
+                        </div>
+        </div>
+        
+        <!-- Projet 5: Aide à la mobilité -->
+        <div class="swiper-slide">
+          <div class="bg-beige-clair rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+            <img src="assets/img/soins/bequille1.jpeg" alt="Aide à la mobilité" class="w-full h-64 object-cover">
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-3 text-brun-fonce">Aide à la mobilité</h3>
+              <p class="text-brun mb-4">
+                Distribution de fauteuils roulants, béquilles et autres équipements 
+                pour l'autonomie des personnes handicapées.
+              </p>
+              <a href="projet-mobilite.html" class="inline-flex items-center text-accent font-semibold hover:underline">
+                En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+                            </div>
+                            </div>
+                        </div>
+        
+        <!-- Projet 6: Noël solidaire -->
+        <div class="swiper-slide">
+          <div class="bg-beige-clair rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+            <img src="assets/img/noel/noel1.jpeg" alt="Noël solidaire" class="w-full h-64 object-cover">
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-3 text-brun-fonce">Noël solidaire</h3>
+              <p class="text-brun mb-4">
+                Organisation de fêtes de Noël avec distribution de cadeaux 
+                et repas festifs pour les enfants défavorisés.
+              </p>
+              <a href="projet-noel.html" class="inline-flex items-center text-accent font-semibold hover:underline">
+                En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+        </div>
+        
+      </div>
+      <!-- Navigation -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination mt-8"></div>
+            </div>
+        </div>
+    </section>
+    
+<!-- GALERIE PHOTO -->
+<section id="galerie" class="py-20 bg-beige-clair">
+        <div class="container mx-auto px-4">
+    <div class="text-center mb-12 fade-in">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-brun-fonce">Galerie Photos</h2>
+      <p class="text-lg text-brun max-w-2xl mx-auto">
+        Découvrez nos actions en images et l'impact de votre générosité sur le terrain.
+                </p>
+            </div>
+            
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 fade-in">
+      <!-- Photo 1 -->
+      <div class="gallery-item rounded-lg overflow-hidden shadow-lg cursor-pointer">
+        <img src="assets/img/livres/livres2.jpeg" alt="Distribution de livres" class="w-full h-64 object-cover">
+        <div class="gallery-overlay">
+          <p class="text-white text-lg font-semibold">Distribution de livres</p>
+                </div>
+                </div>
+      
+      <!-- Photo 2 -->
+      <div class="gallery-item rounded-lg overflow-hidden shadow-lg cursor-pointer">
+        <img src="assets/img/opticien/opticien2.jpeg" alt="Consultation ophtalmologique" class="w-full h-64 object-cover">
+        <div class="gallery-overlay">
+          <p class="text-white text-lg font-semibold">Consultation ophtalmologique</p>
+                </div>
+      </div>
+      
+      <!-- Photo 3 -->
+      <div class="gallery-item rounded-lg overflow-hidden shadow-lg cursor-pointer">
+        <img src="assets/img/livres/livres3.jpeg" alt="Bibliothèque" class="w-full h-64 object-cover">
+        <div class="gallery-overlay">
+          <p class="text-white text-lg font-semibold">Nouvelle bibliothèque</p>
+                </div>
+            </div>
+            
+      <!-- Photo 4 -->
+      <div class="gallery-item rounded-lg overflow-hidden shadow-lg cursor-pointer">
+        <img src="assets/img/opticien/opticien3.jpeg" alt="Examen de la vue" class="w-full h-64 object-cover">
+        <div class="gallery-overlay">
+          <p class="text-white text-lg font-semibold">Examen de la vue</p>
+                        </div>
+                    </div>
+      
+      <!-- Photo 5 -->
+      <div class="gallery-item rounded-lg overflow-hidden shadow-lg cursor-pointer">
+        <img src="assets/img/opticien/opticien4.jpeg" alt="Distribution de lunettes" class="w-full h-64 object-cover">
+        <div class="gallery-overlay">
+          <p class="text-white text-lg font-semibold">Distribution de lunettes</p>
+        </div>
+                </div>
+                
+      <!-- Photo 6 -->
+      <div class="gallery-item rounded-lg overflow-hidden shadow-lg cursor-pointer">
+        <img src="assets/img/opticien/opticien5.jpeg" alt="Test de vision" class="w-full h-64 object-cover">
+        <div class="gallery-overlay">
+          <p class="text-white text-lg font-semibold">Test de vision</p>
+                        </div>
+                    </div>
+      
+      <!-- Photo 7 -->
+      <div class="gallery-item rounded-lg overflow-hidden shadow-lg cursor-pointer">
+        <img src="assets/img/opticien/opticien6.jpeg" alt="Équipe médicale" class="w-full h-64 object-cover">
+        <div class="gallery-overlay">
+          <p class="text-white text-lg font-semibold">Équipe médicale</p>
+                </div>
+      </div>
+      
+      <!-- Photo 8 -->
+      <div class="gallery-item rounded-lg overflow-hidden shadow-lg cursor-pointer">
+        <img src="assets/img/enfants1.jpeg" alt="Enfants bénéficiaires" class="w-full h-64 object-cover">
+        <div class="gallery-overlay">
+          <p class="text-white text-lg font-semibold">Nos bénéficiaires</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center mt-8">
+      <a href="galerie-complete.html" class="inline-flex items-center bg-brun text-beige-clair px-6 py-3 rounded-lg hover:bg-brun-fonce transition shadow-md">
+        Voir toutes les photos <i class="fas fa-images ml-2"></i>
+      </a>
+            </div>
+        </div>
+    </section>
+    
+<!-- ÉQUIPE SECTION -->
+<section id="equipe" class="py-20 bg-creme">
+        <div class="container mx-auto px-4">
+    <div class="text-center mb-12 fade-in">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-brun-fonce">Notre Équipe</h2>
+      <p class="text-lg text-brun max-w-3xl mx-auto">
+        Une équipe 100% bénévole, passionnée et dévouée, présente en France et au Cameroun 
+        pour mener à bien nos missions humanitaires.
+      </p>
+    </div>
+    
+    <!-- Photo de groupe -->
+    <div class="mb-12 fade-in">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <img src="assets/img/membres/photosmembres.jpg" alt="Équipe AbongoFrance" class="rounded-lg shadow-xl w-full">
+        <img src="assets/img/membres/photosmembres2.jpg" alt="Équipe AbongoCamer" class="rounded-lg shadow-xl w-full">
+      </div>
+    </div>
+
+    <!-- Membres individuels -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 fade-in">
+      <!-- Présidente France -->
+      <div class="text-center bg-beige-clair rounded-lg shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-beige">
+        <h3 class="text-xl font-bold text-brun-fonce">Lucile Irène Adzaba</h3>
+        <p class="text-accent font-medium">Présidente AbongoFrance</p>
+        <p class="text-brun mt-2 text-sm">
+          Fondatrice et coordinatrice des projets France-Cameroun
+        </p>
+      </div>
+      
+      <!-- Présidente Cameroun -->
+      <div class="text-center bg-beige-clair rounded-lg shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-beige">
+        <h3 class="text-xl font-bold text-brun-fonce">Juliette Elogo</h3>
+        <p class="text-accent font-medium">Présidente AbongoCamer</p>
+        <p class="text-brun mt-2 text-sm">
+          Responsable des opérations terrain au Cameroun
+        </p>
+      </div>
+                        
+      <!-- Coordinateur médical -->
+      <div class="text-center bg-beige-clair rounded-lg shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-beige">
+        <h3 class="text-xl font-bold text-brun-fonce">Dr. Ézéchiel</h3>
+        <p class="text-brun-clair font-medium">Coordinateur médical</p>
+        <p class="text-brun mt-2 text-sm">
+          Supervise toutes les campagnes de santé
+        </p>
+      </div>
+                        
+      <!-- Responsable logistique -->
+      <div class="text-center bg-beige-clair rounded-lg shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-beige">
+        <h3 class="text-xl font-bold text-brun-fonce">?</h3>
+        <p class="text-brun font-medium">Responsable logistique</p>
+        <p class="text-brun mt-2 text-sm">
+          Gère l'acheminement des dons et matériels
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TÉMOIGNAGES -->
+<section id="temoignages" class="py-20 bg-brun text-beige-clair">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12 fade-in">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Témoignages</h2>
+      <p class="text-lg text-beige max-w-2xl mx-auto">
+        Les voix de ceux dont la vie a été transformée grâce à votre générosité
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 fade-in">
+      <!-- Témoignage 1 -->
+      <div class="bg-brun-fonce/30 backdrop-blur-sm rounded-lg p-6">
+        <div class="flex mb-4">
+          <i class="fas fa-quote-left text-accent text-3xl"></i>
+        </div>
+        <p class="text-beige mb-4 italic">
+          "Grâce à AbongoFrance-Camer, mon fils peut maintenant entendre et aller à l'école. 
+          Cette opération a changé notre vie. Merci du fond du cœur !"
+        </p>
+        <div class="flex items-center">
+          <div class="w-12 h-12 rounded-full bg-accent mr-3"></div>
+                        <div>
+            <p class="font-semibold">Marie Ngono</p>
+            <p class="text-sm text-beige">Mère de famille, Yaoundé</p>
+          </div>
+        </div>
+                        </div>
+                        
+      <!-- Témoignage 2 -->
+      <div class="bg-brun-fonce/30 backdrop-blur-sm rounded-lg p-6">
+        <div class="flex mb-4">
+          <i class="fas fa-quote-left text-accent text-3xl"></i>
+                                </div>
+        <p class="text-beige mb-4 italic">
+          "Les livres que nous avons reçus ont ouvert un monde nouveau à nos enfants. 
+          La bibliothèque est devenue le cœur de notre village."
+        </p>
+        <div class="flex items-center">
+          <div class="w-12 h-12 rounded-full bg-accent mr-3"></div>
+          <div>
+            <p class="font-semibold">Paul Essomba</p>
+            <p class="text-sm text-beige">Directeur d'école, Nkolmebanga</p>
+          </div>
+                            </div>
+                        </div>
+                        
+      <!-- Témoignage 3 -->
+      <div class="bg-brun-fonce/30 backdrop-blur-sm rounded-lg p-6">
+        <div class="flex mb-4">
+          <i class="fas fa-quote-left text-accent text-3xl"></i>
+                            </div>
+        <p class="text-beige mb-4 italic">
+          "Recevoir des lunettes m'a permis de continuer mes études. 
+          Je peux enfin lire au tableau et suivre les cours normalement."
+                            </p>
+        <div class="flex items-center">
+          <div class="w-12 h-12 rounded-full bg-accent mr-3"></div>
+          <div>
+            <p class="font-semibold">Jeanne Mbarga</p>
+            <p class="text-sm text-beige">Étudiante, 16 ans</p>
+                        </div>
+        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+<!-- DONATION SECTION -->
+<section id="faire-un-don" class="py-20 bg-beige-clair">
+        <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12 fade-in">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-brun-fonce">Soutenez nos actions</h2>
+        <p class="text-xl text-brun">
+          Votre générosité change des vies. 100% de vos dons vont directement sur le terrain.
+                </p>
+            </div>
+            
+      <div class="bg-creme rounded-2xl shadow-xl p-8 md:p-12 fade-in">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Montants suggérés -->
+          <div>
+            <h3 class="text-2xl font-bold mb-6 text-brun-fonce">Choisissez votre don</h3>
+            
+            <div class="space-y-4 mb-6">
+              <label class="flex items-center p-4 border-2 border-beige rounded-lg cursor-pointer hover:border-brun transition bg-beige-clair">
+                <input type="radio" name="amount" value="30" class="mr-3">
+                <div class="flex-1">
+                  <span class="font-semibold text-lg text-brun-fonce">30€</span>
+                  <p class="text-sm text-brun">Fournitures scolaires pour 5 enfants</p>
+                    </div>
+              </label>
+              
+              <label class="flex items-center p-4 border-2 border-beige rounded-lg cursor-pointer hover:border-brun transition bg-beige-clair">
+                <input type="radio" name="amount" value="50" class="mr-3">
+                <div class="flex-1">
+                  <span class="font-semibold text-lg text-brun-fonce">50€</span>
+                  <p class="text-sm text-brun">Consultation médicale pour 10 enfants</p>
+                    </div>
+              </label>
+              
+              <label class="flex items-center p-4 border-2 border-beige rounded-lg cursor-pointer hover:border-brun transition bg-beige-clair">
+                <input type="radio" name="amount" value="100" class="mr-3">
+                <div class="flex-1">
+                  <span class="font-semibold text-lg text-brun-fonce">100€</span>
+                  <p class="text-sm text-brun">Aide alimentaire pour une famille/mois</p>
+                    </div>
+              </label>
+              
+              <label class="flex items-center p-4 border-2 border-beige rounded-lg cursor-pointer hover:border-brun transition bg-beige-clair">
+                <input type="radio" name="amount" value="custom" class="mr-3">
+                <div class="flex-1">
+                  <span class="font-semibold text-lg text-brun-fonce">Montant libre</span>
+                  <input type="number" placeholder="Autre montant en €" class="mt-2 w-full border border-beige rounded px-3 py-2 bg-creme">
+            </div>
+              </label>
+        </div>
+            
+            <label class="flex items-center mb-6">
+              <input type="checkbox" class="mr-3 w-5 h-5 text-brun">
+              <span class="text-brun">Je souhaite faire un don mensuel</span>
+            </label>
+                </div>
+                
+          <!-- Informations et boutons -->
+          <div>
+            <h3 class="text-2xl font-bold mb-6 text-brun-fonce">Vos avantages fiscaux</h3>
+            
+            <div class="bg-accent/10 rounded-lg p-4 mb-6">
+              <p class="text-brun">
+                <i class="fas fa-info-circle text-accent mr-2"></i>
+                En France, votre don ouvre droit à une réduction d'impôt de <strong>66% à 75%</strong> de son montant.
+                </p>
+            </div>
+            
+            <div class="space-y-3 mb-6">
+              <button class="w-full bg-accent text-white py-3 px-6 rounded-lg font-bold hover:bg-red-700 transition flex items-center justify-center shadow-md">
+                <i class="fas fa-credit-card mr-2"></i> Donner par carte bancaire
+              </button>
+              
+              <button class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-bold hover:bg-blue-700 transition flex items-center justify-center shadow-md">
+                <i class="fab fa-paypal mr-2"></i> Donner via PayPal
+              </button>
+              
+              <a href="https://www.helloasso.com/associations/abongofrance-camer" target="_blank" 
+                 class="w-full bg-purple-600 text-white py-3 px-6 rounded-lg font-bold hover:bg-purple-700 transition flex items-center justify-center shadow-md">
+                <i class="fas fa-hand-holding-heart mr-2"></i> Donner via HelloAsso
+              </a>
+            </div>
+            
+            <div class="text-center">
+              <p class="text-sm text-brun mb-2">Vous préférez un virement bancaire ?</p>
+              <button class="text-accent font-semibold hover:underline" onclick="toggleBankDetails()">
+                Voir nos coordonnées bancaires
+              </button>
+            </div>
+            
+            <!-- Coordonnées bancaires (cachées par défaut) -->
+            <div id="bank-details" class="hidden mt-4 p-4 bg-beige rounded-lg text-sm">
+              <p class="font-semibold mb-2 text-brun-fonce">Compte France :</p>
+              <p class="text-brun mb-3">IBAN: FR76 XXXX XXXX XXXX XXXX</p>
+              <p class="font-semibold mb-2 text-brun-fonce">Compte Cameroun :</p>
+              <p class="text-brun">RIB: CM21 XXXX XXXX XXXX XXXX</p>
+            </div>
+          </div>
+        </div>
+      </div>
+            </div>
+        </div>
+    </section>
+    
+<!-- CONTACT SECTION -->
+<section id="contact" class="py-20 bg-creme">
+        <div class="container mx-auto px-4">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-brun-fonce fade-in">
+        Restons en contact
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 fade-in">
+        <!-- Informations de contact -->
+        <div>
+          <h3 class="text-2xl font-bold mb-6 text-brun-fonce">Nos coordonnées</h3>
+                    
+                    <div class="space-y-6">
+            <!-- Email -->
+                        <div class="flex items-start">
+              <div class="bg-brun/10 p-3 rounded-full mr-4">
+                <i class="fas fa-envelope text-brun text-xl"></i>
+              </div>
+                            <div>
+                <p class="font-semibold text-brun-fonce">Email</p>
+                <a href="mailto:abongofrance@yahoo.fr" class="text-accent hover:underline">
+                  abongofrance@yahoo.fr
+                </a>
+                            </div>
+                        </div>
+                        
+            <!-- Téléphones -->
+                        <div class="flex items-start">
+              <div class="bg-brun/10 p-3 rounded-full mr-4">
+                <i class="fas fa-phone text-brun text-xl"></i>
+              </div>
+                            <div>
+                <p class="font-semibold text-brun-fonce">Téléphones</p>
+                <p class="text-brun">France: +33 7 52 81 06 53</p>
+                <p class="text-brun">WhatsApp: +33 7 66 44 75 83</p>
+                            </div>
+                        </div>
+                        
+            <!-- Adresse -->
+                        <div class="flex items-start">
+              <div class="bg-brun/10 p-3 rounded-full mr-4">
+                <i class="fas fa-map-marker-alt text-brun text-xl"></i>
+              </div>
+                            <div>
+                <p class="font-semibold text-brun-fonce">Sièges</p>
+                <p class="text-brun">France: Paris</p>
+                <p class="text-brun">Cameroun: Yaoundé</p>
+                            </div>
+                        </div>
+                    </div>
+          
+          <!-- Réseaux sociaux -->
+          <div class="mt-8">
+            <h4 class="text-xl font-bold mb-4 text-brun-fonce">Suivez-nous</h4>
+            <div class="flex space-x-4">
+              <a href="https://www.facebook.com/abongofrance.camer/" target="_blank"
+                 class="w-12 h-12 rounded-full bg-brun flex items-center justify-center text-beige-clair hover:bg-brun-fonce transition">
+                <i class="fab fa-facebook-f text-xl"></i>
+              </a>
+              <a href="#" class="w-12 h-12 rounded-full bg-[#E1306C] flex items-center justify-center text-white hover:bg-[#C13584] transition">
+                <i class="fab fa-instagram text-xl"></i>
+              </a>
+              <a href="#" class="w-12 h-12 rounded-full bg-brun-clair flex items-center justify-center text-beige-clair hover:bg-brun transition">
+                <i class="fab fa-youtube text-xl"></i>
+              </a>
+                        </div>
+                    </div>
+                </div>
+                
+        <!-- Formulaire de contact -->
+                            <div>
+          <h3 class="text-2xl font-bold mb-6 text-brun-fonce">Envoyez-nous un message</h3>
+          <form class="space-y-4">
+                            <div>
+              <label for="name" class="block mb-2 font-medium text-brun">Nom complet</label>
+              <input type="text" id="name" class="w-full border border-beige rounded-lg px-4 py-3 focus:outline-none focus:border-brun bg-beige-clair">
+                        </div>
+                        
+            <div>
+              <label for="email" class="block mb-2 font-medium text-brun">Email</label>
+              <input type="email" id="email" class="w-full border border-beige rounded-lg px-4 py-3 focus:outline-none focus:border-brun bg-beige-clair">
+                        </div>
+                        
+            <div>
+              <label for="subject" class="block mb-2 font-medium text-brun">Objet</label>
+              <select id="subject" class="w-full border border-beige rounded-lg px-4 py-3 focus:outline-none focus:border-brun bg-beige-clair">
+                <option>Question générale</option>
+                <option>Faire un don</option>
+                <option>Devenir bénévole</option>
+                <option>Partenariat</option>
+                <option>Autre</option>
+                            </select>
+                        </div>
+                        
+            <div>
+              <label for="message" class="block mb-2 font-medium text-brun">Message</label>
+              <textarea id="message" rows="5" class="w-full border border-beige rounded-lg px-4 py-3 focus:outline-none focus:border-brun bg-beige-clair"></textarea>
+                        </div>
+                        
+            <button type="submit" class="w-full bg-brun text-beige-clair py-3 px-6 rounded-lg font-bold hover:bg-brun-fonce transition shadow-md">
+              <i class="fas fa-paper-plane mr-2"></i> Envoyer le message
+                            </button>
+                    </form>
+        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+<!-- FOOTER -->
+<footer class="bg-brun-fonce text-beige-clair py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <!-- À propos -->
+                <div>
+        <div class="flex items-center mb-4">
+          <img src="assets/img/Logo/Logo.jpg" alt="Logo" class="w-12 h-12 rounded-full mr-3">
+          <h3 class="text-xl font-bold">ABONGOFRANCE-CAMER</h3>
+        </div>
+        <p class="text-beige text-sm">
+          Association humanitaire franco-camerounaise œuvrant pour l'éducation et la santé. 
+          100% bénévole, 100% sur le terrain.
+        </p>
+                </div>
+                
+      <!-- Liens rapides -->
+                <div>
+        <h4 class="text-lg font-bold mb-4">Liens rapides</h4>
+                    <ul class="space-y-2">
+          <li><a href="#mission" class="text-beige hover:text-white transition">Notre mission</a></li>
+          <li><a href="#projets" class="text-beige hover:text-white transition">Nos projets</a></li>
+          <li><a href="#galerie" class="text-beige hover:text-white transition">Galerie photos</a></li>
+          <li><a href="#faire-un-don" class="text-beige hover:text-white transition">Faire un don</a></li>
+                    </ul>
+                </div>
+                
+      <!-- Documents légaux -->
+                <div>
+        <h4 class="text-lg font-bold mb-4">Documents</h4>
+                    <ul class="space-y-2">
+          <li><a href="#" class="text-beige hover:text-white transition">Statuts de l'association</a></li>
+          <li><a href="#" class="text-beige hover:text-white transition">Rapport d'activité 2024</a></li>
+          <li><a href="#" class="text-beige hover:text-white transition">Transparence financière</a></li>
+          <li><a href="#" class="text-beige hover:text-white transition">Mentions légales</a></li>
+                    </ul>
+                </div>
+                
+      <!-- Newsletter -->
+                <div>
+        <h4 class="text-lg font-bold mb-4">Newsletter</h4>
+        <p class="text-beige text-sm mb-4">
+          Recevez nos actualités et l'impact de vos dons
+        </p>
+        <form class="flex flex-col space-y-2">
+          <input type="email" placeholder="Votre email" 
+                 class="px-4 py-2 rounded-lg bg-brun border border-brun-clair focus:outline-none focus:border-beige text-beige-clair">
+          <button type="submit" class="bg-accent px-4 py-2 rounded-lg hover:bg-red-700 transition text-white font-medium">
+            S'abonner
+          </button>
+        </form>
+                </div>
+            </div>
+            
+    <div class="border-t border-brun mt-8 pt-8 text-center">
+      <p class="text-beige text-sm">
+        © 2025 AbongoFrance-Camer. Tous droits réservés. | 
+        <span class="text-accent">Ensemble pour un Cameroun meilleur</span>
+      </p>
+            </div>
+        </div>
+    </footer>
+    
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+  // Mobile menu toggle
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+  mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+  });
+  
+  // Swiper initialization
+  const swiper = new Swiper('.projectsSwiper', {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3,
+      },
+    },
+  });
+  
+  // Toggle bank details
+  function toggleBankDetails() {
+    const bankDetails = document.getElementById('bank-details');
+    bankDetails.classList.toggle('hidden');
+  }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+                        // Close mobile menu if open
+        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+            
+  // Fade in animation on scroll
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+  
+  document.querySelectorAll('.fade-in').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+    </script>
+
+</body>
+</html>
