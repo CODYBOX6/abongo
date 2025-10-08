@@ -5,31 +5,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rooftop 105 — Procédure Soirée (Bracelets & Offres)</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-primary': '#0ea5e9',
+            'brand-success': '#10b981',
+            'brand-warning': '#f59e0b',
+            'brand-danger': '#ef4444',
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body class="bg-zinc-50 text-zinc-900 antialiased">
-  <header class="bg-gradient-to-r from-zinc-900 to-zinc-800 text-white">
-    <div class="mx-auto max-w-5xl px-6 py-8">
-      <h1 class="text-2xl md:text-3xl font-bold tracking-tight">Rooftop 105 — Procédure Soirée (Bracelets & Offres)</h1>
-      <p class="mt-2 text-zinc-300">Collab avec Jonathan — version exhaustive, prête pour briefing staff & bar.</p>
+<body class="bg-gradient-to-br from-slate-50 to-slate-100 text-slate-900 antialiased">
+  <header class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white shadow-xl">
+    <div class="mx-auto max-w-5xl px-6 py-10">
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight">Rooftop 105 — Procédure Soirée (Bracelets & Offres)</h1>
+      <p class="mt-3 text-slate-300 text-lg">Collab avec Jonathan — version exhaustive, prête pour briefing staff & bar.</p>
     </div>
   </header>
 
   <main class="mx-auto max-w-5xl px-6 py-8">
+    <!-- Contexte économique -->
+    <section class="mb-8">
+      <div class="rounded-2xl border-2 border-emerald-200 bg-gradient-to-br from-emerald-50 to-teal-50 shadow-lg">
+        <div class="border-b-2 border-emerald-200 p-6 bg-gradient-to-r from-emerald-600 to-teal-600">
+          <h2 class="text-xl font-bold text-white flex items-center gap-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            Contexte économique : Solution intelligente & zéro risque
+          </h2>
+        </div>
+        <div class="p-6">
+          <div class="bg-white rounded-xl p-5 mb-4 border-l-4 border-emerald-500 shadow-sm">
+            <h3 class="font-bold text-lg text-emerald-900 mb-3">💡 Contre-proposition au système d'amortissement</h3>
+            <p class="text-slate-700 leading-relaxed mb-3">
+              <span class="font-semibold text-emerald-700">Leur proposition initiale :</span> Un amortissement de <span class="font-bold text-red-600">6'000 CHF</span> à payer si l'affluence est insuffisante.
+            </p>
+            <p class="text-slate-700 leading-relaxed">
+              <span class="font-semibold text-emerald-700">Notre solution :</span> Système de boissons offertes avec timing stratégique → <span class="font-bold text-emerald-600">Mathématiquement impossible d'être en déficit</span> car on ne paie que les bracelets distribués avec l'argent des prélocs encaissées.
+            </p>
+          </div>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-white rounded-xl p-4 shadow-sm border border-emerald-100">
+              <div class="text-emerald-600 font-bold text-sm mb-1">✓ Coûts maîtrisés</div>
+              <p class="text-sm text-slate-600">Chaque bracelet distribué = préloc encaissée</p>
+            </div>
+            <div class="bg-white rounded-xl p-4 shadow-sm border border-emerald-100">
+              <div class="text-emerald-600 font-bold text-sm mb-1">✓ Risque zéro</div>
+              <p class="text-sm text-slate-600">Pas d'engagement forfaitaire minimum à honorer</p>
+            </div>
+            <div class="bg-white rounded-xl p-4 shadow-sm border border-emerald-100">
+              <div class="text-emerald-600 font-bold text-sm mb-1">✓ Incitation efficace</div>
+              <p class="text-sm text-slate-600">Booster l'arrivée tôt sans prendre de risque financier</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Résumé exécutif -->
     <section class="mb-8">
-      <div class="rounded-2xl border border-zinc-200 bg-white shadow-sm">
-        <div class="border-b border-zinc-200 p-5">
-          <h2 class="text-lg font-semibold">Résumé rapide</h2>
+      <div class="rounded-2xl border-2 border-sky-200 bg-white shadow-lg">
+        <div class="border-b-2 border-sky-200 p-5 bg-gradient-to-r from-sky-500 to-blue-600">
+          <h2 class="text-xl font-bold text-white">📋 Résumé rapide</h2>
         </div>
-        <div class="p-5 grid gap-4 md:grid-cols-2">
-          <div class="space-y-2">
-            <p><span class="font-medium">Objectif :</span> booster l’arrivée tôt et fluidifier l’entrée via un système de bracelets.</p>
-            <p><span class="font-medium">Créneaux clés :</span> <span class="font-semibold">21:00</span> (offre 2 boissons) & <span class="font-semibold">22:30</span> (offre 1 boisson).</p>
-            <p><span class="font-medium">Cutoff 21:00 :</span> <span class="font-semibold">21:15</span> (par défaut — ajustable si besoin).</p>
+        <div class="p-6 grid gap-4 md:grid-cols-2">
+          <div class="space-y-3 bg-slate-50 rounded-xl p-4 border border-slate-200">
+            <p><span class="font-semibold text-sky-700">Objectif :</span> <span class="text-slate-700">Booster l'arrivée tôt et fluidifier l'entrée via un système de bracelets.</span></p>
+            <p><span class="font-semibold text-sky-700">Créneaux clés :</span> <span class="font-bold text-sky-900">21:00</span> <span class="text-slate-600">(offre 2 boissons)</span> & <span class="font-bold text-sky-900">22:30</span> <span class="text-slate-600">(offre 1 boisson)</span></p>
+            <p><span class="font-semibold text-sky-700">Cutoff 21:00 :</span> <span class="font-bold text-orange-600">21:15</span> <span class="text-slate-600">(par défaut — ajustable si besoin)</span></p>
           </div>
-          <div class="space-y-2">
-            <p><span class="font-medium">Mapping bracelets :</span> Couleur A = Bière, Couleur B = Soft (jus), Couleur C = Shot (si activé).</p>
-            <p><span class="font-medium">Contrôle :</span> 1 boisson = 1 bracelet coupé/collecté. Non transférable.</p>
+          <div class="space-y-3 bg-slate-50 rounded-xl p-4 border border-slate-200">
+            <p><span class="font-semibold text-sky-700">Mapping bracelets :</span> <span class="text-slate-700">Couleur A = Bière, Couleur B = Soft (jus), Couleur C = Shot (si activé)</span></p>
+            <p><span class="font-semibold text-sky-700">Contrôle :</span> <span class="text-slate-700">1 boisson = 1 bracelet coupé/collecté. Non transférable.</span></p>
           </div>
         </div>
       </div>
@@ -37,68 +90,112 @@
 
     <!-- Mapping Couleurs -->
     <section class="mb-8">
-      <div class="rounded-2xl border border-zinc-200 bg-white shadow-sm">
-        <div class="border-b border-zinc-200 p-5 flex items-center justify-between">
-          <h2 class="text-lg font-semibold">Mapping bracelets (couleurs & droit)</h2>
-          <span class="rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-700">Version à jour</span>
+      <div class="rounded-2xl border-2 border-purple-200 bg-white shadow-lg">
+        <div class="border-b-2 border-purple-200 p-5 bg-gradient-to-r from-purple-500 to-indigo-600">
+          <div class="flex items-center justify-between">
+            <h2 class="text-xl font-bold text-white">🎨 Mapping bracelets (couleurs & droit)</h2>
+            <span class="rounded-full bg-white/20 backdrop-blur-sm px-3 py-1 text-xs font-bold text-white">Version à jour</span>
+          </div>
         </div>
-        <div class="p-5 grid gap-4 md:grid-cols-3">
-          <div class="rounded-xl border border-zinc-200 p-4">
-            <div class="flex items-center gap-2">
-              <span class="inline-block h-3 w-3 rounded-full bg-amber-500"></span>
-              <h3 class="font-semibold">Couleur A = Bière</h3>
+        <div class="p-6 grid gap-4 md:grid-cols-3">
+          <div class="rounded-xl border-2 border-amber-300 bg-gradient-to-br from-amber-50 to-yellow-50 p-5 shadow-md hover:shadow-xl transition-shadow">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="inline-block h-8 w-8 rounded-full bg-amber-500 shadow-lg ring-4 ring-amber-200"></span>
+              <h3 class="font-bold text-lg text-amber-900">Couleur A</h3>
             </div>
-            <p class="mt-2 text-sm text-zinc-600">Valable pour une bière offerte par bracelet.</p>
+            <div class="text-2xl font-bold text-amber-700 mb-2">🍺 Bière</div>
+            <p class="text-sm text-slate-700">Valable pour une bière offerte par bracelet.</p>
           </div>
-          <div class="rounded-xl border border-zinc-200 p-4">
-            <div class="flex items-center gap-2">
-              <span class="inline-block h-3 w-3 rounded-full bg-sky-500"></span>
-              <h3 class="font-semibold">Couleur B = Soft (jus d’orange)</h3>
+          <div class="rounded-xl border-2 border-sky-300 bg-gradient-to-br from-sky-50 to-blue-50 p-5 shadow-md hover:shadow-xl transition-shadow">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="inline-block h-8 w-8 rounded-full bg-sky-500 shadow-lg ring-4 ring-sky-200"></span>
+              <h3 class="font-bold text-lg text-sky-900">Couleur B</h3>
             </div>
-            <p class="mt-2 text-sm text-zinc-600">Valable pour un soft (p. ex. jus d’orange) par bracelet.</p>
+            <div class="text-2xl font-bold text-sky-700 mb-2">🧃 Soft</div>
+            <p class="text-sm text-slate-700">Valable pour un soft (p. ex. jus d'orange) par bracelet.</p>
           </div>
-          <div class="rounded-xl border border-zinc-200 p-4">
-            <div class="flex items-center gap-2">
-              <span class="inline-block h-3 w-3 rounded-full bg-rose-500"></span>
-              <h3 class="font-semibold">Couleur C = Shot</h3>
-              <span class="ml-auto rounded bg-rose-50 px-2 py-0.5 text-xs text-rose-600">optionnel</span>
+          <div class="rounded-xl border-2 border-rose-300 bg-gradient-to-br from-rose-50 to-pink-50 p-5 shadow-md hover:shadow-xl transition-shadow relative">
+            <div class="absolute top-3 right-3">
+              <span class="rounded-lg bg-rose-500 px-3 py-1 text-xs font-bold text-white shadow-md">OPTIONNEL</span>
             </div>
-            <p class="mt-2 text-sm text-zinc-600">À activer seulement si décidé (coût + contrôle plus strict).</p>
+            <div class="flex items-center gap-3 mb-3">
+              <span class="inline-block h-8 w-8 rounded-full bg-rose-500 shadow-lg ring-4 ring-rose-200"></span>
+              <h3 class="font-bold text-lg text-rose-900">Couleur C</h3>
+            </div>
+            <div class="text-2xl font-bold text-rose-700 mb-2">🥃 Shot</div>
+            <p class="text-sm text-slate-700">À activer seulement si décidé (coût + contrôle plus strict).</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Règles d’offre par horaire -->
+    <!-- Règles d'offre par horaire -->
     <section class="mb-8">
-      <div class="rounded-2xl border border-zinc-200 bg-white shadow-sm">
-        <div class="border-b border-zinc-200 p-5">
-          <h2 class="text-lg font-semibold">Règles d’offre par horaire</h2>
+      <div class="rounded-2xl border-2 border-orange-200 bg-white shadow-lg">
+        <div class="border-b-2 border-orange-200 p-5 bg-gradient-to-r from-orange-500 to-amber-600">
+          <h2 class="text-xl font-bold text-white">⏰ Règles d'offre par horaire</h2>
         </div>
-        <div class="p-5 grid gap-6 md:grid-cols-2">
-          <div class="rounded-xl border border-zinc-200 p-4">
-            <h3 class="font-semibold">Arrivée à 21:00 → <span class="text-emerald-600">2 boissons offertes</span></h3>
-            <ul class="mt-2 list-disc pl-5 text-sm text-zinc-700 space-y-1">
-              <li>Au choix : <span class="font-medium">2 bières</span> (A+A) ou <span class="font-medium">2 softs</span> (B+B).</li>
-              <li>Option shots (C) à <span class="italic">désactiver par défaut</span> pour maîtriser les coûts.</li>
-              <li>On remet <span class="font-medium">deux bracelets d’emblée</span> (un “21:00” et un “22:30”).</li>
-              <li><span class="font-medium">Cutoff 21:00 :</span> après <span class="font-semibold">21:15</span>, on n’attribue plus le bracelet “21:00”.</li>
+        <div class="p-6 grid gap-6 md:grid-cols-2">
+          <div class="rounded-xl border-2 border-emerald-300 bg-gradient-to-br from-emerald-50 to-green-50 p-5 shadow-md">
+            <div class="flex items-center gap-2 mb-4">
+              <div class="bg-emerald-600 text-white font-bold text-xl px-4 py-2 rounded-lg shadow-lg">21:00</div>
+              <div class="text-3xl">→</div>
+              <div class="bg-emerald-500 text-white font-bold text-lg px-3 py-1 rounded-lg shadow-md">2 boissons</div>
+            </div>
+            <ul class="space-y-2 text-sm text-slate-700">
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span>Au choix : <span class="font-bold">2 bières</span> (A+A) ou <span class="font-bold">2 softs</span> (B+B).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span>Option shots (C) à <span class="italic font-medium">désactiver par défaut</span> pour maîtriser les coûts.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span>On remet <span class="font-bold">deux bracelets d'emblée</span> (un "21:00" et un "22:30").</span>
+              </li>
+              <li class="flex items-start gap-2 bg-orange-100 border-l-4 border-orange-500 p-2 rounded">
+                <span class="text-orange-600 font-bold">⚠️</span>
+                <span><span class="font-bold">Cutoff 21:00 :</span> après <span class="font-bold text-orange-700">21:15</span>, on n'attribue plus le bracelet "21:00".</span>
+              </li>
             </ul>
           </div>
-          <div class="rounded-xl border border-zinc-200 p-4">
-            <h3 class="font-semibold">Arrivée à 22:30 → <span class="text-emerald-600">1 boisson offerte</span></h3>
-            <ul class="mt-2 list-disc pl-5 text-sm text-zinc-700 space-y-1">
-              <li>Au choix : <span class="font-medium">1 bière</span> (A) ou <span class="font-medium">1 soft</span> (B). Shot (C) si activé.</li>
-              <li>Après 22:30 (ex. 23:00) → <span class="font-medium">entrée sans boisson</span>.</li>
+          <div class="rounded-xl border-2 border-blue-300 bg-gradient-to-br from-blue-50 to-sky-50 p-5 shadow-md">
+            <div class="flex items-center gap-2 mb-4">
+              <div class="bg-blue-600 text-white font-bold text-xl px-4 py-2 rounded-lg shadow-lg">22:30</div>
+              <div class="text-3xl">→</div>
+              <div class="bg-blue-500 text-white font-bold text-lg px-3 py-1 rounded-lg shadow-md">1 boisson</div>
+            </div>
+            <ul class="space-y-2 text-sm text-slate-700">
+              <li class="flex items-start gap-2">
+                <span class="text-blue-600 font-bold">✓</span>
+                <span>Au choix : <span class="font-bold">1 bière</span> (A) ou <span class="font-bold">1 soft</span> (B). Shot (C) si activé.</span>
+              </li>
+              <li class="flex items-start gap-2 bg-slate-100 border-l-4 border-slate-400 p-2 rounded">
+                <span class="text-slate-600 font-bold">ℹ️</span>
+                <span>Après 22:30 (ex. 23:00) → <span class="font-bold">entrée sans boisson</span>.</span>
+              </li>
             </ul>
           </div>
         </div>
-        <div class="px-5 pb-5">
-          <div class="rounded-lg bg-amber-50 border border-amber-200 p-4 text-amber-800 text-sm">
-            <p class="font-medium">Rappel important :</p>
-            <ul class="mt-1 list-disc pl-5 space-y-1">
-              <li>Si quelqu’un arrive à 21:00 et reste jusqu’à 22:30, il utilise ses deux bracelets (2 boissons).</li>
-              <li>Les bracelets sont <span class="font-semibold">non transférables</span> et <span class="font-semibold">coupés</span> au bar à chaque consommation.</li>
+        <div class="px-6 pb-6">
+          <div class="rounded-xl bg-gradient-to-r from-amber-100 to-yellow-100 border-2 border-amber-300 p-5 shadow-md">
+            <p class="font-bold text-amber-900 text-lg mb-3 flex items-center gap-2">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+              </svg>
+              Rappel important :
+            </p>
+            <ul class="space-y-2 text-sm text-amber-900">
+              <li class="flex items-start gap-2">
+                <span class="text-amber-600 font-bold">•</span>
+                <span>Si quelqu'un arrive à 21:00 et reste jusqu'à 22:30, il utilise ses deux bracelets (2 boissons).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-amber-600 font-bold">•</span>
+                <span>Les bracelets sont <span class="font-bold bg-amber-200 px-2 py-0.5 rounded">non transférables</span> et <span class="font-bold bg-amber-200 px-2 py-0.5 rounded">coupés</span> au bar à chaque consommation.</span>
+              </li>
             </ul>
           </div>
         </div>
