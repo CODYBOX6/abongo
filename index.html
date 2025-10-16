@@ -29,6 +29,41 @@
   </header>
 
   <main class="mx-auto max-w-5xl px-6 py-8">
+    <!-- Boutons d'accès rapide -->
+    <section class="mb-8 grid md:grid-cols-2 gap-4">
+      <!-- Bouton Planning -->
+      <button id="openPlanningBtn" class="rounded-2xl border-2 border-rose-300 bg-gradient-to-r from-rose-500 to-pink-600 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] p-6 text-white flex items-center justify-between group animate-pulse hover:animate-none">
+        <div class="flex items-center gap-4">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+          <div class="text-left">
+            <h2 class="text-xl font-bold">📅 Planning de la soirée</h2>
+            <p class="text-sm text-rose-100">Postes, horaires & consignes</p>
+          </div>
+        </div>
+        <svg class="w-6 h-6 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+      </button>
+
+      <!-- Bouton Liste Prélocs -->
+      <button id="openPrelocsBtn" class="rounded-2xl border-2 border-indigo-300 bg-gradient-to-r from-indigo-500 to-purple-600 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] p-6 text-white flex items-center justify-between group">
+        <div class="flex items-center gap-4">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+          </svg>
+          <div class="text-left">
+            <h2 class="text-xl font-bold">📋 Liste complète des prélocs</h2>
+            <p class="text-sm text-indigo-100">Voir, rechercher et trier tous les paiements</p>
+          </div>
+        </div>
+        <svg class="w-6 h-6 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+      </button>
+    </section>
+
     <!-- Contexte économique -->
     <section class="mb-8">
       <div class="rounded-2xl border-2 border-emerald-200 bg-gradient-to-br from-emerald-50 to-teal-50 shadow-lg">
@@ -430,5 +465,753 @@
       <p class="mt-4 text-xs text-zinc-500">Dernière mise à jour : <span class="font-medium">v1.0</span></p>
     </footer>
   </main>
+
+  <!-- Modal Planning -->
+  <div id="planningModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 overflow-y-auto">
+    <div class="min-h-screen px-4 py-8">
+      <div class="bg-white rounded-2xl shadow-2xl max-w-7xl mx-auto">
+        <!-- Header Modal -->
+        <div class="bg-gradient-to-r from-rose-600 to-pink-700 text-white p-6 rounded-t-2xl">
+          <div class="flex items-center justify-between mb-2">
+            <div>
+              <h2 class="text-3xl font-bold">📅 Planning de la soirée - Rooftop 105</h2>
+              <p class="text-sm text-rose-100 mt-2">Organisation complète des postes et horaires</p>
+            </div>
+            <button id="closePlanningModal" class="bg-white/20 hover:bg-white/30 p-2 rounded-lg transition-colors">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="p-6 space-y-6">
+          <!-- Info importante -->
+          <div class="rounded-xl bg-gradient-to-r from-amber-100 to-yellow-100 border-2 border-amber-400 p-5 shadow-lg">
+            <h3 class="font-bold text-lg text-amber-900 mb-3 flex items-center gap-2">
+              <span class="text-2xl">🎫</span>
+              Système de bracelets & jetons
+            </h3>
+            <div class="space-y-2 text-sm text-amber-900">
+              <p><strong>🎗️ Bracelet HEG :</strong> Tout le monde reçoit un bracelet HEG à l'entrée pour identifier qu'ils viennent de notre part.</p>
+              <p><strong>🪙 Système de jetons :</strong> Pour les boissons offertes, on utilise des jetons de couleurs au lieu de bracelets coupés (plus rapide, plus fiable, pas de risque de coupure).</p>
+              <p><strong>🏦 Tirelire supervisée :</strong> Une personne supervise et explique le système de jetons.</p>
+              <p><strong>💚 Identification staff :</strong> Le staff aura un bracelet vert fluo ou autre système pour être identifié.</p>
+            </div>
+          </div>
+
+          <!-- Système de rotation -->
+          <div class="rounded-xl bg-gradient-to-r from-green-100 to-emerald-100 border-2 border-green-400 p-5 shadow-lg">
+            <h3 class="font-bold text-lg text-green-900 mb-3 flex items-center gap-2">
+              <span class="text-2xl">🔄</span>
+              Système de rotation des shifts
+            </h3>
+            <div class="space-y-2 text-sm text-green-900">
+              <p><strong>⏱️ Durée des shifts :</strong> Chaque shift dure 1h30</p>
+              <p><strong>⚡ Statut par défaut :</strong> Quand tu n'es pas sur un shift actif, tu es POLYVALENT</p>
+              <p><strong>🤝 Entraide obligatoire :</strong> Si quelqu'un a besoin d'aide, tu dois pouvoir aider même si tu es polyvalent</p>
+              <p><strong>📍 Présence continue :</strong> Chaque poste a toujours quelqu'un OU est couvert par les polyvalents</p>
+            </div>
+          </div>
+
+          <!-- Timeline avec shifts -->
+          <div class="rounded-xl bg-gradient-to-r from-slate-100 to-slate-200 p-5 border-2 border-slate-300">
+            <h3 class="font-bold text-lg text-slate-900 mb-4 flex items-center gap-2">
+              <span class="text-2xl">⏰</span>
+              Timeline de la soirée & Shifts (1h30 chacun)
+            </h3>
+            <div class="grid md:grid-cols-2 gap-4">
+              <!-- Colonne gauche : Timeline événements -->
+              <div class="space-y-2">
+                <p class="font-bold text-slate-800 mb-2">📅 Événements</p>
+                <div class="flex items-center gap-2 bg-white p-2 rounded-lg shadow-sm text-sm">
+                  <div class="bg-emerald-500 text-white font-bold px-2 py-1 rounded text-xs min-w-[100px] text-center">21:00 - 22:00</div>
+                  <span class="text-slate-700">1ère boisson gratuite</span>
+                </div>
+                <div class="flex items-center gap-2 bg-white p-2 rounded-lg shadow-sm text-sm">
+                  <div class="bg-blue-500 text-white font-bold px-2 py-1 rounded text-xs min-w-[100px] text-center">22:00 - 23:00</div>
+                  <span class="text-slate-700">2ème boisson gratuite</span>
+                </div>
+                <div class="flex items-center gap-2 bg-white p-2 rounded-lg shadow-sm text-sm">
+                  <div class="bg-purple-500 text-white font-bold px-2 py-1 rounded text-xs min-w-[100px] text-center">23:00 - 02:30</div>
+                  <span class="text-slate-700">Fin de soirée</span>
+                </div>
+              </div>
+              
+              <!-- Colonne droite : Shifts rotation -->
+              <div class="space-y-2">
+                <p class="font-bold text-slate-800 mb-2">🔄 Shifts (rotation 1h30)</p>
+                <div class="flex items-center gap-2 bg-indigo-50 p-2 rounded-lg border-2 border-indigo-300 text-sm">
+                  <div class="bg-indigo-600 text-white font-bold px-2 py-1 rounded text-xs min-w-[100px] text-center">Shift 1</div>
+                  <span class="text-slate-700 font-semibold">21:00 - 22:30</span>
+                </div>
+                <div class="flex items-center gap-2 bg-cyan-50 p-2 rounded-lg border-2 border-cyan-300 text-sm">
+                  <div class="bg-cyan-600 text-white font-bold px-2 py-1 rounded text-xs min-w-[100px] text-center">Shift 2</div>
+                  <span class="text-slate-700 font-semibold">22:30 - 00:00</span>
+                </div>
+                <div class="flex items-center gap-2 bg-rose-50 p-2 rounded-lg border-2 border-rose-300 text-sm">
+                  <div class="bg-rose-600 text-white font-bold px-2 py-1 rounded text-xs min-w-[100px] text-center">Shift 3</div>
+                  <span class="text-slate-700 font-semibold">00:00 - 01:30</span>
+                </div>
+                <div class="flex items-center gap-2 bg-amber-50 p-2 rounded-lg border-2 border-amber-300 text-sm">
+                  <div class="bg-amber-600 text-white font-bold px-2 py-1 rounded text-xs min-w-[100px] text-center">Shift 4</div>
+                  <span class="text-slate-700 font-semibold">01:30 - 02:30</span>
+                </div>
+                <p class="text-xs text-slate-600 italic mt-2">⚡ Entre les shifts = Polyvalent</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Postes -->
+          <div class="grid md:grid-cols-2 gap-6">
+            <!-- Accueil -->
+            <div class="rounded-xl border-2 border-indigo-300 bg-gradient-to-br from-indigo-50 to-blue-50 p-5 shadow-lg">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="bg-indigo-600 text-white text-2xl p-3 rounded-lg">👋</span>
+                <div>
+                  <h3 class="font-bold text-xl text-indigo-900">Accueil (En bas)</h3>
+                  <p class="text-sm text-indigo-700">3-4 personnes par shift</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg p-4 space-y-2 text-sm">
+                <p class="font-bold text-indigo-900 mb-2">🔄 Rotation : Shifts de 1h30</p>
+                <p class="text-xs text-indigo-700 mb-2">📍 Toujours quelqu'un sur ce poste (ou polyvalent)</p>
+                <p class="font-semibold text-slate-900">Missions :</p>
+                <ul class="space-y-1 text-slate-700 ml-4">
+                  <li>✓ Gérer la liste des noms sur iPad</li>
+                  <li>✓ Donner les coins/bracelets HEG</li>
+                  <li>✓ Distribuer les jetons pour boissons offertes</li>
+                  <li>✓ Contrôle d'identité</li>
+                </ul>
+                <p class="text-xs text-slate-500 italic mt-2">⚡ Pas sur ce shift ? → Polyvalent</p>
+              </div>
+            </div>
+
+            <!-- Gestion Prélocs Bar -->
+            <div class="rounded-xl border-2 border-emerald-300 bg-gradient-to-br from-emerald-50 to-green-50 p-5 shadow-lg">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="bg-emerald-600 text-white text-2xl p-3 rounded-lg">🍺</span>
+                <div>
+                  <h3 class="font-bold text-xl text-emerald-900">Gestion Prélocs Bar (En haut)</h3>
+                  <p class="text-sm text-emerald-700">2-3 personnes par shift</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg p-4 space-y-2 text-sm">
+                <p class="font-bold text-emerald-900 mb-2">🔄 Rotation : Shifts de 1h30</p>
+                <p class="text-xs text-emerald-700 mb-2">📍 Toujours quelqu'un sur ce poste (ou polyvalent)</p>
+                <p class="font-semibold text-slate-900">Missions :</p>
+                <ul class="space-y-1 text-slate-700 ml-4">
+                  <li>✓ Superviser la tirelire des jetons</li>
+                  <li>✓ Expliquer le fonctionnement aux gens</li>
+                  <li>✓ Surveiller les abus (mais chill)</li>
+                  <li>✓ 21h-22h : 1ère conso gratuite</li>
+                  <li>✓ 22h-23h : 2ème boisson gratuite</li>
+                  <li>✓ On peut consommer pendant ce temps</li>
+                </ul>
+                <p class="text-xs text-slate-500 italic mt-2">⚡ Pas sur ce shift ? → Polyvalent</p>
+              </div>
+            </div>
+
+            <!-- Vestiaire -->
+            <div class="rounded-xl border-2 border-purple-300 bg-gradient-to-br from-purple-50 to-pink-50 p-5 shadow-lg relative">
+              <div class="absolute top-3 right-3">
+                <span class="rounded-lg bg-purple-600 px-3 py-1 text-xs font-bold text-white shadow-md">POSTE FIXE PAYÉ</span>
+              </div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="bg-purple-600 text-white text-2xl p-3 rounded-lg">👔</span>
+                <div>
+                  <h3 class="font-bold text-xl text-purple-900">Vestiaire</h3>
+                  <p class="text-sm text-purple-700">1 fixe payé + polyvalents aux moments clés</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg p-4 space-y-2 text-sm">
+                <p class="font-bold text-purple-900 mb-2">🔒 Personne fixe : Toute la soirée (21:00 - 02:30)</p>
+                <div class="bg-purple-100 p-2 rounded border-l-4 border-purple-500 mb-2">
+                  <p class="text-xs font-semibold text-purple-900">💰 1 personne fixe PAYÉE + polyvalents en renfort</p>
+                </div>
+                <p class="font-semibold text-slate-900">Organisation :</p>
+                <ul class="space-y-1 text-slate-700 ml-4">
+                  <li>✓ <strong>Fixe payé :</strong> Gérer le vestiaire toute la soirée</li>
+                  <li>✓ <strong>Polyvalents en renfort :</strong></li>
+                  <li class="ml-4">• Début de soirée (21:00-22:00) - afflux</li>
+                  <li class="ml-4">• Fin de soirée (01:30-02:30) - récupération</li>
+                  <li>✓ Tenir la caisse vestiaire</li>
+                  <li>✓ Rendre les manteaux/sacs</li>
+                </ul>
+                <div class="mt-2 bg-amber-100 p-2 rounded border-l-4 border-amber-500">
+                  <p class="text-xs font-semibold text-amber-900">⚡ Moments clés = polyvalents viennent aider le fixe</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sécurité -->
+            <div class="rounded-xl border-2 border-orange-300 bg-gradient-to-br from-orange-50 to-amber-50 p-5 shadow-lg">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="bg-orange-600 text-white text-2xl p-3 rounded-lg">🛡️</span>
+                <div>
+                  <h3 class="font-bold text-xl text-orange-900">Sécurité</h3>
+                  <p class="text-sm text-orange-700">2 personnes par shift</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg p-4 space-y-2 text-sm">
+                <p class="font-bold text-orange-900 mb-2">🔄 Rotation : Shifts de 1h30</p>
+                <p class="text-xs text-orange-700 mb-2">📍 Toujours quelqu'un sur ce poste (ou polyvalent)</p>
+                <p class="font-semibold text-slate-900">Missions :</p>
+                <ul class="space-y-1 text-slate-700 ml-4">
+                  <li>✓ Surveillance générale</li>
+                  <li>✓ Intervention si problème</li>
+                  <li>✓ Peuvent être chill entre deux</li>
+                  <li>✓ Disponibles si on a besoin</li>
+                </ul>
+                <p class="text-xs text-slate-500 italic mt-2">⚡ Pas sur ce shift ? → Polyvalent</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Polyvalents -->
+          <div class="rounded-xl border-2 border-cyan-300 bg-gradient-to-br from-cyan-50 to-blue-50 p-5 shadow-lg">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="bg-cyan-600 text-white text-2xl p-3 rounded-lg">⚡</span>
+              <div>
+                <h3 class="font-bold text-xl text-cyan-900">Polyvalents</h3>
+                <p class="text-sm text-cyan-700">Statut par défaut quand pas en shift</p>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg p-4 space-y-2 text-sm">
+              <p class="font-bold text-cyan-900 mb-2">⚡ Tu n'es pas sur un shift actif ? Tu es POLYVALENT !</p>
+              <p class="text-xs text-cyan-700 mb-2">🌟 Profite de la soirée MAIS reste disponible</p>
+              <p class="font-semibold text-slate-900">Missions :</p>
+              <ul class="space-y-1 text-slate-700 ml-4">
+                <li>✓ Profiter de la soirée tranquillement</li>
+                <li>✓ <strong>OBLIGATOIRE :</strong> Aider si quelqu'un a besoin</li>
+                <li>✓ <strong>Vestiaire :</strong> Aider aux moments clés (début 21h-22h & fin 01h30-02h30)</li>
+                <li>✓ Objets perdus</li>
+                <li>✓ Organiser la queue au bar</li>
+                <li>✓ Support général si appelé</li>
+                <li>✓ Remplacer quelqu'un en urgence</li>
+              </ul>
+              <div class="mt-3 bg-cyan-100 p-2 rounded border-l-4 border-cyan-500">
+                <p class="text-xs font-semibold text-cyan-900">💡 Système de rotation : Chacun son tour sur les postes. Entre deux shifts = polyvalent !</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Planning détaillé par shifts -->
+          <div class="rounded-xl bg-gradient-to-r from-indigo-100 to-blue-100 border-2 border-indigo-400 p-6 shadow-lg">
+            <h3 class="font-bold text-2xl text-indigo-900 mb-4 flex items-center gap-2">
+              <span class="text-2xl">📅</span>
+              Planning détaillé par shifts (1h30)
+            </h3>
+            
+            <!-- Liste des noms disponibles -->
+            <div class="bg-white rounded-lg p-4 mb-6 border-2 border-indigo-300">
+              <h4 class="font-bold text-lg text-indigo-900 mb-3">👥 Équipe disponible :</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">Sonny</span>
+                <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">Ariana</span>
+                <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">Lia</span>
+                <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">Luciana</span>
+                <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">Chris</span>
+                <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">Kris</span>
+                <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">Luc-Adrien</span>
+                <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">Grace</span>
+                <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">Eduardo</span>
+                <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">Sarah</span>
+                <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">Danaé</span>
+                <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">Jade</span>
+                <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">Xiomara</span>
+              </div>
+              <div class="mt-4 bg-amber-100 p-3 rounded border-l-4 border-amber-500">
+                <p class="text-sm font-semibold text-amber-900">📋 À remplir sur poll WhatsApp</p>
+                <p class="text-xs text-amber-700 mt-1">Sonny mettra les noms sur le planning après le sondage WhatsApp</p>
+              </div>
+              <p class="text-xs text-indigo-700 mt-2 italic">⚡ Rappel : Pas sur un shift = POLYVALENT (disponible pour aide ponctuelle)</p>
+            </div>
+
+            <!-- Shifts détaillés -->
+            <div class="space-y-4">
+              <!-- Shift 1 -->
+              <div class="bg-white rounded-lg p-4 border-l-4 border-emerald-500 shadow-sm">
+                <div class="flex items-center justify-between mb-3">
+                  <h4 class="font-bold text-lg text-emerald-900">Shift 1 : 21:00 - 22:30</h4>
+                  <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm font-bold">1h30</span>
+                </div>
+                <div class="grid md:grid-cols-4 gap-4 text-sm">
+                  <div class="bg-indigo-50 p-3 rounded border border-indigo-200">
+                    <p class="font-bold text-indigo-900 mb-1">👋 Accueil (3-4 pers.)</p>
+                    <div class="space-y-1">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-indigo-500 focus:outline-none">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-indigo-500 focus:outline-none">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-indigo-500 focus:outline-none">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-indigo-500 focus:outline-none" placeholder="(optionnel)">
+                    </div>
+                  </div>
+                  <div class="bg-emerald-50 p-3 rounded border border-emerald-200">
+                    <p class="font-bold text-emerald-900 mb-1">🍺 Bar (2-3 pers.)</p>
+                    <div class="space-y-1">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-emerald-500 focus:outline-none">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-emerald-500 focus:outline-none">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-emerald-500 focus:outline-none" placeholder="(optionnel)">
+                    </div>
+                  </div>
+                  <div class="bg-purple-50 p-3 rounded border border-purple-200">
+                    <p class="font-bold text-purple-900 mb-1">👔 Vestiaire</p>
+                    <input type="text" class="w-full text-xs p-2 border rounded bg-purple-100 focus:border-purple-500 focus:outline-none">
+                    <p class="text-xs text-purple-700 mt-1">+ polyvalents (afflux)</p>
+                  </div>
+                  <div class="bg-orange-50 p-3 rounded border border-orange-200">
+                    <p class="font-bold text-orange-900 mb-1">🛡️ Sécurité (2 pers.)</p>
+                    <div class="space-y-1">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-orange-500 focus:outline-none">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-orange-500 focus:outline-none">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Shift 2 -->
+              <div class="bg-white rounded-lg p-4 border-l-4 border-cyan-500 shadow-sm">
+                <div class="flex items-center justify-between mb-3">
+                  <h4 class="font-bold text-lg text-cyan-900">Shift 2 : 22:30 - 00:00</h4>
+                  <span class="bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full text-sm font-bold">1h30</span>
+                </div>
+                <div class="grid md:grid-cols-4 gap-4 text-sm">
+                  <div class="bg-indigo-50 p-3 rounded border border-indigo-200">
+                    <p class="font-bold text-indigo-900 mb-1">👋 Accueil (3-4 pers.)</p>
+                    <div class="space-y-1">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-indigo-500 focus:outline-none">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-indigo-500 focus:outline-none">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-indigo-500 focus:outline-none">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-indigo-500 focus:outline-none" placeholder="(optionnel)">
+                    </div>
+                  </div>
+                  <div class="bg-emerald-50 p-3 rounded border border-emerald-200">
+                    <p class="font-bold text-emerald-900 mb-1">🍺 Bar (2-3 pers.)</p>
+                    <div class="space-y-1">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-emerald-500 focus:outline-none">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-emerald-500 focus:outline-none">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-emerald-500 focus:outline-none" placeholder="(optionnel)">
+                    </div>
+                  </div>
+                  <div class="bg-purple-50 p-3 rounded border border-purple-200">
+                    <p class="font-bold text-purple-900 mb-1">👔 Vestiaire</p>
+                    <input type="text" class="w-full text-xs p-2 border rounded bg-purple-100 focus:border-purple-500 focus:outline-none">
+                    <p class="text-xs text-purple-700 mt-1">Période calme</p>
+                  </div>
+                  <div class="bg-orange-50 p-3 rounded border border-orange-200">
+                    <p class="font-bold text-orange-900 mb-1">🛡️ Sécurité (2 pers.)</p>
+                    <div class="space-y-1">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-orange-500 focus:outline-none">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-orange-500 focus:outline-none">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Shift 3 -->
+              <div class="bg-white rounded-lg p-4 border-l-4 border-rose-500 shadow-sm">
+                <div class="flex items-center justify-between mb-3">
+                  <h4 class="font-bold text-lg text-rose-900">Shift 3 : 00:00 - 01:30</h4>
+                  <span class="bg-rose-100 text-rose-800 px-3 py-1 rounded-full text-sm font-bold">1h30</span>
+                </div>
+                <div class="grid md:grid-cols-4 gap-4 text-sm">
+                  <div class="bg-indigo-50 p-3 rounded border border-indigo-200">
+                    <p class="font-bold text-indigo-900 mb-1">👋 Accueil (3-4 pers.)</p>
+                    <div class="space-y-1">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-indigo-500 focus:outline-none">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-indigo-500 focus:outline-none">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-indigo-500 focus:outline-none">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-indigo-500 focus:outline-none" placeholder="(optionnel)">
+                    </div>
+                  </div>
+                  <div class="bg-emerald-50 p-3 rounded border border-emerald-200">
+                    <p class="font-bold text-emerald-900 mb-1">🍺 Bar (2-3 pers.)</p>
+                    <div class="space-y-1">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-emerald-500 focus:outline-none">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-emerald-500 focus:outline-none">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-emerald-500 focus:outline-none" placeholder="(optionnel)">
+                    </div>
+                  </div>
+                  <div class="bg-purple-50 p-3 rounded border border-purple-200">
+                    <p class="font-bold text-purple-900 mb-1">👔 Vestiaire</p>
+                    <input type="text" class="w-full text-xs p-2 border rounded bg-purple-100 focus:border-purple-500 focus:outline-none">
+                    <p class="text-xs text-purple-700 mt-1">Période calme</p>
+                  </div>
+                  <div class="bg-orange-50 p-3 rounded border border-orange-200">
+                    <p class="font-bold text-orange-900 mb-1">🛡️ Sécurité (2 pers.)</p>
+                    <div class="space-y-1">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-orange-500 focus:outline-none">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-orange-500 focus:outline-none">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Shift 4 -->
+              <div class="bg-white rounded-lg p-4 border-l-4 border-amber-500 shadow-sm">
+                <div class="flex items-center justify-between mb-3">
+                  <h4 class="font-bold text-lg text-amber-900">Shift 4 : 01:30 - 02:30</h4>
+                  <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-bold">1h00</span>
+                </div>
+                <div class="grid md:grid-cols-4 gap-4 text-sm">
+                  <div class="bg-indigo-50 p-3 rounded border border-indigo-200">
+                    <p class="font-bold text-indigo-900 mb-1">👋 Accueil (2-3 pers.)</p>
+                    <div class="space-y-1">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-emerald-500 focus:outline-none">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-emerald-500 focus:outline-none">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-emerald-500 focus:outline-none" placeholder="(optionnel)">
+                    </div>
+                  </div>
+                  <div class="bg-emerald-50 p-3 rounded border border-emerald-200">
+                    <p class="font-bold text-emerald-900 mb-1">🍺 Bar (1-2 pers.)</p>
+                    <div class="space-y-1">
+                      <input type="text" placeholder="Nom 1" class="w-full text-xs p-1 border rounded">
+                      <input type="text" placeholder="Nom 2 (opt.)" class="w-full text-xs p-1 border rounded">
+                    </div>
+                  </div>
+                  <div class="bg-purple-50 p-3 rounded border border-purple-200">
+                    <p class="font-bold text-purple-900 mb-1">👔 Vestiaire</p>
+                    <input type="text" class="w-full text-xs p-2 border rounded bg-purple-100 focus:border-purple-500 focus:outline-none">
+                    <p class="text-xs text-purple-700 mt-1">+ polyvalents (sortie)</p>
+                  </div>
+                  <div class="bg-orange-50 p-3 rounded border border-orange-200">
+                    <p class="font-bold text-orange-900 mb-1">🛡️ Sécurité (2 pers.)</p>
+                    <div class="space-y-1">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-orange-500 focus:outline-none">
+                      <input type="text" class="w-full text-xs p-2 border rounded focus:border-orange-500 focus:outline-none">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Rappel polyvalents -->
+            <div class="mt-6 bg-cyan-100 rounded-lg p-4 border-2 border-cyan-400">
+              <h4 class="font-bold text-cyan-900 mb-2">⚡ Rappel important - Polyvalents :</h4>
+              <ul class="text-sm text-cyan-800 space-y-1">
+                <li>• <strong>Pas sur un shift actif = POLYVALENT par défaut</strong></li>
+                <li>• Disponible pour aide ponctuelle : gros afflux vestiaire, queue bar, objets perdus, etc.</li>
+                <li>• Moments clés vestiaire : début (21h-22h) et fin (01h30-02h30)</li>
+                <li>• Peut profiter de la soirée MAIS doit rester disponible si appelé</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Récapitulatif -->
+          <div class="rounded-xl bg-gradient-to-r from-slate-800 to-slate-900 text-white p-6 shadow-xl">
+            <h3 class="font-bold text-xl mb-4">📊 Récapitulatif du système</h3>
+            <div class="space-y-4">
+              <div>
+                <p class="font-bold text-lg mb-3">Effectifs par shift (1h30) :</p>
+                <div class="grid md:grid-cols-3 gap-3 text-sm">
+                  <div class="bg-white/10 rounded-lg p-3">
+                    <p class="font-bold text-lg">3-4</p>
+                    <p>Accueil en bas</p>
+                  </div>
+                  <div class="bg-white/10 rounded-lg p-3">
+                    <p class="font-bold text-lg">2-3</p>
+                    <p>Gestion bar haut</p>
+                  </div>
+                  <div class="bg-white/10 rounded-lg p-3">
+                    <p class="font-bold text-lg">1</p>
+                    <p>Vestiaire</p>
+                  </div>
+                  <div class="bg-white/10 rounded-lg p-3">
+                    <p class="font-bold text-lg">2</p>
+                    <p>Sécurité</p>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-cyan-500/20 rounded-lg p-4 border-2 border-cyan-400">
+                <p class="font-bold text-lg mb-2">⚡ Système de rotation</p>
+                <p class="text-sm">✓ Chaque shift = 1h30</p>
+                <p class="text-sm">✓ Pas en shift ? = POLYVALENT (profite MAIS disponible)</p>
+                <p class="text-sm">✓ Identification staff : bracelet vert fluo</p>
+                <p class="text-sm">✓ Entraide obligatoire entre tous</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Liste Prélocs -->
+  <div id="prelocsModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 overflow-y-auto">
+    <div class="min-h-screen px-4 py-8">
+      <div class="bg-white rounded-2xl shadow-2xl max-w-7xl mx-auto">
+        <!-- Header Modal -->
+        <div class="sticky top-0 bg-gradient-to-r from-indigo-600 to-purple-700 text-white p-6 rounded-t-2xl z-10">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h2 class="text-2xl font-bold">📋 Liste complète des prélocs</h2>
+              <p id="totalCount" class="text-sm text-indigo-100 mt-1"></p>
+            </div>
+            <button id="closeModal" class="bg-white/20 hover:bg-white/30 p-2 rounded-lg transition-colors">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+          
+          <!-- Barre de recherche -->
+          <div class="mb-4">
+            <div class="relative">
+              <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="🔍 Rechercher par prénom, nom..." 
+                class="w-full px-4 py-3 pl-10 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-300"
+              />
+              <svg class="absolute left-3 top-3.5 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Options de tri -->
+          <div class="flex flex-wrap gap-2">
+            <button class="sort-btn active px-4 py-2 rounded-lg bg-white/20 hover:bg-white/30 text-sm font-medium transition-all" data-sort="date">
+              📅 Date
+            </button>
+            <button class="sort-btn px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm font-medium transition-all" data-sort="firstname">
+              👤 Prénom A-Z
+            </button>
+            <button class="sort-btn px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm font-medium transition-all" data-sort="lastname">
+              👥 Nom A-Z
+            </button>
+            <button class="sort-btn px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm font-medium transition-all" data-sort="description">
+              📝 Description
+            </button>
+            <button class="sort-btn px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm font-medium transition-all" data-sort="amount">
+              💰 Montant
+            </button>
+            <button class="sort-btn px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm font-medium transition-all" data-sort="smart">
+              ⚡ Tri intelligent
+            </button>
+          </div>
+        </div>
+
+        <!-- Table des prélocs -->
+        <div class="overflow-x-auto p-6">
+          <table class="min-w-full divide-y divide-slate-200">
+            <thead class="bg-slate-50 sticky top-[200px]">
+              <tr>
+                <th class="px-4 py-3 text-left text-xs font-medium text-slate-600 uppercase tracking-wider">Date & Heure</th>
+                <th class="px-4 py-3 text-left text-xs font-medium text-slate-600 uppercase tracking-wider">Client</th>
+                <th class="px-4 py-3 text-left text-xs font-medium text-slate-600 uppercase tracking-wider">Description</th>
+                <th class="px-4 py-3 text-left text-xs font-medium text-slate-600 uppercase tracking-wider">Montant</th>
+                <th class="px-4 py-3 text-left text-xs font-medium text-slate-600 uppercase tracking-wider">Référence</th>
+                <th class="px-4 py-3 text-left text-xs font-medium text-slate-600 uppercase tracking-wider">Statut</th>
+              </tr>
+            </thead>
+            <tbody id="prelocsTableBody" class="bg-white divide-y divide-slate-200">
+              <!-- Lignes générées dynamiquement -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Chargement des données
+    let prelocsData = [];
+    let filteredData = [];
+    let currentSort = 'date';
+
+    // Charger les données depuis le JSON
+    fetch('prelocs.json')
+      .then(response => response.json())
+      .then(data => {
+        prelocsData = data;
+        filteredData = [...data];
+        updateDisplay();
+      })
+      .catch(error => {
+        console.error('Erreur de chargement des données:', error);
+      });
+
+    // Ouvrir le modal planning par défaut au chargement
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('planningModal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    });
+
+    // Ouvrir/Fermer le modal planning
+    document.getElementById('openPlanningBtn').addEventListener('click', () => {
+      document.getElementById('planningModal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    });
+
+    document.getElementById('closePlanningModal').addEventListener('click', () => {
+      document.getElementById('planningModal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    });
+
+    // Fermer en cliquant à l'extérieur
+    document.getElementById('planningModal').addEventListener('click', (e) => {
+      if (e.target.id === 'planningModal') {
+        document.getElementById('planningModal').classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Ouvrir/Fermer le modal prélocs
+    document.getElementById('openPrelocsBtn').addEventListener('click', () => {
+      document.getElementById('prelocsModal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    });
+
+    document.getElementById('closeModal').addEventListener('click', () => {
+      document.getElementById('prelocsModal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    });
+
+    // Fermer en cliquant à l'extérieur
+    document.getElementById('prelocsModal').addEventListener('click', (e) => {
+      if (e.target.id === 'prelocsModal') {
+        document.getElementById('prelocsModal').classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Fonction pour extraire le prénom et le nom
+    function splitName(fullName) {
+      const parts = fullName.trim().split(' ');
+      if (parts.length === 1) {
+        return { firstname: parts[0], lastname: '' };
+      }
+      return {
+        firstname: parts[0],
+        lastname: parts.slice(1).join(' ')
+      };
+    }
+
+    // Fonction de tri intelligent
+    function smartSort(a, b) {
+      // Priorité 1: Les warnings en premier
+      if (a.warning !== b.warning) {
+        return b.warning ? 1 : -1;
+      }
+      // Priorité 2: Les montants les plus élevés
+      if (Math.abs(a.amount_chf - b.amount_chf) > 0.01) {
+        return b.amount_chf - a.amount_chf;
+      }
+      // Priorité 3: Les dates les plus récentes
+      return new Date(b.iso_datetime) - new Date(a.iso_datetime);
+    }
+
+    // Fonction de tri
+    function sortData(sortType) {
+      currentSort = sortType;
+      
+      filteredData.sort((a, b) => {
+        switch(sortType) {
+          case 'date':
+            return new Date(b.iso_datetime) - new Date(a.iso_datetime);
+          
+          case 'firstname':
+            const aFirst = splitName(a.client).firstname.toLowerCase();
+            const bFirst = splitName(b.client).firstname.toLowerCase();
+            return aFirst.localeCompare(bFirst, 'fr');
+          
+          case 'lastname':
+            const aLast = splitName(a.client).lastname.toLowerCase();
+            const bLast = splitName(b.client).lastname.toLowerCase();
+            return aLast.localeCompare(bLast, 'fr');
+          
+          case 'description':
+            return a.description.localeCompare(b.description, 'fr');
+          
+          case 'amount':
+            return b.amount_chf - a.amount_chf;
+          
+          case 'smart':
+            return smartSort(a, b);
+          
+          default:
+            return 0;
+        }
+      });
+      
+      updateDisplay();
+    }
+
+    // Fonction de recherche
+    function searchData() {
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      
+      if (!searchTerm) {
+        filteredData = [...prelocsData];
+      } else {
+        filteredData = prelocsData.filter(item => {
+          const fullName = item.client.toLowerCase();
+          return fullName.includes(searchTerm);
+        });
+      }
+      
+      sortData(currentSort);
+    }
+
+    // Mettre à jour l'affichage
+    function updateDisplay() {
+      const tbody = document.getElementById('prelocsTableBody');
+      const totalCount = document.getElementById('totalCount');
+      
+      totalCount.textContent = `${filteredData.length} résultat${filteredData.length > 1 ? 's' : ''} sur ${prelocsData.length} total`;
+      
+      tbody.innerHTML = filteredData.map(item => {
+        const warningClass = item.warning ? 'bg-amber-50 border-l-4 border-amber-500' : '';
+        const warningIcon = item.warning ? '<span class="text-amber-600 text-xl mr-2">⚠️</span>' : '';
+        
+        return `
+          <tr class="${warningClass} hover:bg-slate-50 transition-colors">
+            <td class="px-4 py-3 whitespace-nowrap text-sm text-slate-900">
+              ${item.date_time}
+            </td>
+            <td class="px-4 py-3 text-sm font-medium text-slate-900">
+              ${warningIcon}${item.client}
+            </td>
+            <td class="px-4 py-3 text-sm text-slate-600">
+              ${item.description}
+            </td>
+            <td class="px-4 py-3 whitespace-nowrap text-sm font-semibold text-slate-900">
+              ${item.amount_chf.toFixed(2)} ${item.currency}
+            </td>
+            <td class="px-4 py-3 whitespace-nowrap text-xs font-mono text-slate-500">
+              ${item.reference}
+            </td>
+            <td class="px-4 py-3 whitespace-nowrap">
+              <span class="px-2 py-1 text-xs font-semibold rounded-full ${
+                item.status === 'Payé' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+              }">
+                ${item.status}
+              </span>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    // Événements de recherche
+    document.getElementById('searchInput').addEventListener('input', searchData);
+
+    // Événements de tri
+    document.querySelectorAll('.sort-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        // Mise à jour visuelle des boutons
+        document.querySelectorAll('.sort-btn').forEach(b => {
+          b.classList.remove('active', 'bg-white/20');
+          b.classList.add('bg-white/10');
+        });
+        e.target.classList.add('active', 'bg-white/20');
+        e.target.classList.remove('bg-white/10');
+        
+        // Appliquer le tri
+        sortData(e.target.dataset.sort);
+      });
+    });
+  </script>
 </body>
 </html>
